@@ -1,0 +1,505 @@
+$def with(username,projectname,details_info)
+<head>
+<link rel="stylesheet" href="../static/layui/css/layui.css" media="all" />
+<link rel="stylesheet" href="../static/layui/public.css" media="all" />
+  <script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+    <link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<!-- Toastr script -->
+<!--<link href="../static/css_new/plugins/toastr/toastr.min.css" rel="stylesheet">
+<script src="../static/js_new/plugins/toastr/toastr.min.js"></script>-->
+<script type="text/javascript" src="../static/layui/layui.js"></script>    
+<!--<script src="../static/js_new/Arthur/user_arthur.js" type="text/javascript"></script>-->
+
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="../static/css_new/jquery-comments.css" charset="UTF-8">
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+
+<!-- Data -->
+<!--<script type="text/javascript" src="../static/comments/comments-data.js" charset="UTF-8"></script>-->
+<!-- Libraries for QAcomments-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../static/js_new/jquery-comments.js" charset="UTF-8"></script>
+<script src="../static/assets/js/arthur/serviceDetails/run_api.js" type="text/javascript"></script>
+<script src="../static/assets/js/arthur/serviceDetails/serviceInfoEdit.js" type="text/javascript"></script>
+<script src="../static/assets/js/arthur/serviceDetails/QAcomments.js" type="text/javascript"></script>
+<script src="../static/assets/js/arthur/serviceDetails/serviceInfoStar.js" type="text/javascript"></script>
+
+
+</head>
+
+<style>
+ .layui-form-label{width:auto;}  
+.nav li a .color-logo.python[data-v-de645da4]{background-image:url(https://cdn.algorithmia.com/static/images/python.6e0ff20.svg)
+}
+.nav li a .grayscale-logo.python[data-v-de645da4]{background-image:url(https://cdn.algorithmia.com/static/images/python.17c7d56.svg)
+.algo-banner .banner--uri[data-v-0ebb1413]{font-size:1.25rem
+}
+}
+.al{
+    color: red;
+    }
+     .a2{
+         color: green;
+     }
+     .a3{
+         color: pink;
+     }
+     .p2 a{ 
+         color: gray;
+     }
+.text-accent-dark {
+  color:  gray;
+}
+.text-accent-algo {
+  color:  #c89300;
+}
+
+ul.tag-list li {
+    list-style: none;
+}
+.tag-list li {
+    float: left;
+}
+
+.section-body:first-child {
+    margin-top: 0px;
+}/*离section之间0距离*/
+    
+.tag-list li a {
+    font-size: 10px;
+    background-color: #f0f3f4;
+    padding: 5px 12px;
+    color: inherit;
+    border-radius: 2px;
+    border: 1px solid #e7eaec;
+    margin-right: 5px;
+    margin-top: 5px;
+    display: block;
+}
+
+</style>
+
+<script>
+$$(document).ready(function () {
+    QAcommentsQuerySave("$username","$projectname");
+    get_serv_staredInfo("$username","$projectname");
+});
+</script>
+
+<section >
+    <div class="section-body" >
+        <div class="card">   
+            <!-- BEGIN CONTACT DETAILS HEADER -->
+            <div class="card-head style-default-bright">
+                <div class="tools pull-left">
+                    <ol class="breadcrumb" id="project_url" style="margin-left:10px">
+                        <li><a href="/services/username=$username" class="a2"><i class="fa fa-user fa-fw fa-2x text-accent-dark"> </i>$username</a></li>
+                        <li class="active"><strong class="text-accent-algo">$projectname</strong><a class="btn copyMe " data-clipboard-action="copy" data-clipboard-target="#project_url" data-toggle="dropdown" href="#"> <i class="fa fa-copy"></i></a></li>
+                    </ol>
+                </div><!--end .tools -->
+                <div class="tools">
+                    <a class="btn btn-flat hidden-xs" href="/services/username=$username"><span class="glyphicon glyphicon-arrow-left"></span> &nbsp;Back</a>
+                </div><!--end .tools -->
+            </div><!--end .card-head -->
+            <!-- END CONTACT DETAILS HEADER -->
+            <!-- BEGIN CONTACT DETAILS -->
+            <div class="card-tiles">
+                <div class="hbox-md col-md-12">
+                    <div class="hbox-column col-md-9">
+                        <div class="row">
+                            <!-- BEGIN CONTACTS NAV -->
+                            <div class="col-sm-5 col-md-4 col-lg-3">
+                                <ul class="nav nav-pills nav-stacked" id="staredUserTable">
+                                    
+                                </ul>
+                                <br>
+                                <ul class="nav nav-pills nav-stacked" >
+                                     <li class="hidden-xs"><small>服务推荐</small></li>
+                                     <li class="hidden-xs ">
+                                        <a href="service_zoo_list.html">
+                                            <img class="img-circle img-responsive pull-left width-1" src="../static/images/p2.png" alt="" />
+                                            <span class="text-medium" >wanda_recom_model</span><br/>
+                                            <span class="opacity-50">
+                                                <span class="glyphicon glyphicon-cog text-sm"></span> &nbsp;万达小程序推荐模型
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div><!--end .col -->
+                            <!-- END CONTACTS NAV -->
+
+											<!-- BEGIN CONTACTS MAIN CONTENT -->
+											<div class="col-sm-7 col-md-8 col-lg-9">
+												<div class="margin-bottom-xxl">
+													<!--<div class="pull-left width-3 clearfix hidden-xs">
+														<img class="img-circle size-2" src="../static/images/p2.png" alt="" />
+													</div>-->
+													<h1 class="text-light no-margin">$projectname</h1>
+                                                    <br>
+													<h5>
+														$details_info["algodesc"]
+													</h5>
+													&nbsp;&nbsp;
+												</div><!--end .margin-bottom-xxl -->
+												<ul class="nav nav-tabs" data-toggle="tabs">
+													<li class="active"><a href="#notes">Run</a></li>
+													<li><a href="#activity">Update</a></li>
+													<li><a href="#details">Details</a></li>
+												</ul>
+												<div class="tab-content">
+
+													<!-- BEGIN CONTACTS NOTES -->
+													<div class="tab-pane active" id="notes">
+														<br/>
+														<form class="form" id="formNote" accept-charset="utf-8" method="">
+                                                            <span class="opacity-50">Model Info</span>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="modelInfo" value='{"username":"$username","algoname":"$projectname"}' readonly="readonly">
+                                                            </div>
+															<span class="opacity-50">Data Info</span>
+															<div class="form-group">
+                                                                <textarea id="dataInfo" name="message" class=" layui-textarea control-3-rows"  spellcheck="false">$details_info["datainfo"]</textarea>
+															</div>
+															<div class="form-group clearfix"><!--btn-default-light -->
+                                                                <a class="layui-btn  layui-btn-sm layui-btn-myCSS1  pull-right runApiExample"><i class="fa fa-check-circle"></i> RUN EXAMPLE</a> 
+           
+																<!--<button class="btn btn-raised btn-primary pull-right runApiExample">RUN EXAMPLE</button>-->
+															</div>
+														</form>
+                                                        
+														<div class="list-results list-results-underlined">
+															<div class="col-xs-12">
+																<p class="clearfix">
+																	<span class="fa fa-fw fa-file-o fa-2x pull-left"></span>
+																	<span class="pull-left">
+																		<span class="text-bold">Tags</span><br/>
+																		<span class="opacity-50">算法标签</span>
+                                                                      
+                                                                        
+																	</span>
+																</p>
+                                                                
+                                                                <br>
+																<div>
+                                                                    
+                                                                        <span class="layui-blue">
+                                                                            $for key,val in details_info["tags_info"].items()
+                                                                            <ul class="tag-list" style="margin-left:5px;">
+                                                                            <li class="tag-item tag-pills">
+                                                                                <a href="/tags/tag=$val">$val</a><!---->
+                                                                               
+                                                                            
+                                                                            </li>
+                                                                            </ul>
+                                                                            
+                                                                             <a type="button" class="btn btn-icon-toggle btn-edit edit_tags"
+                                                                                   
+                                                                                   data-toggle="tooltip" data-placement="top" data-original-title="Edit">
+                                                                                    <i class="fa fa-pencil"></i></a>
+                                                                        </span>
+																</div>
+															</div><!--end .col -->
+															<div class="col-xs-12">
+																<p class="clearfix">
+																	<span class="fa fa-fw fa-cloud-download fa-2x pull-left"></span>
+																	<span class="pull-left">
+																		<span class="text-bold">客户端</span><br/>
+																		<span class="opacity-50">Install and Use</span><br/>
+																	</span>
+																</p>
+																<div>
+                                                                    <!--class="layui-table mag0-->
+                                                                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                                                            <ul class="layui-tab-title">
+                                                                                <li class="layui-this">python</li>
+                                                                                <li>JavaScript</li>
+                                                                                <li>curl</li>
+                                                                            </ul>
+                                                                            <div class="layui-tab-content"> 
+                                                                                <div class="layui-tab-item layui-show">
+                                                                                    <div class="alert alert-callout alert-success" id="clientHtml">
+                                                                                        <!--$details_info['infer_algo_info']-->
+                                                                                        <script>
+                                                                                        $$(document).ready(function(){
+                                                                                           
+                                                                                            var clientHtml="";
+                                                                                            clientHtml+='import requests<br>';
+                                                                                            clientHtml+='import json<br>';
+                                                                                            clientHtml+='data='+JSON.stringify('{"servicename":<code>"$projectname"</code>,"algoname":<code>$details_info["funcslist"]</code>,"token": <code>"项目Token,请与算法负责人联系获取"</code>,"request_type":<code>"predict"</code>,"req_data":<code>$details_info["datainfo"]</code>}',null,4)+'<br>';
+                                                                                            clientHtml+='urlroute=<code>"http://{IP:PORT}/api/service/predict"</code><br>';
+                                                                                            clientHtml+='result=requests.post(urlroute,data=json.dumps(data))';
+                                                                                            $$("#clientHtml").html(clientHtml);
+                                                                                        });
+                                                                                        </script>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="layui-tab-item">
+                                                                                    <div class="alert alert-callout alert-success">
+                                                                                        comming soon!
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="layui-tab-item">
+                                                                                     <div class="alert alert-callout alert-success">
+                                                                                         curl -d '{"n": 4}' -H "Authorization: Token 项目token" http://ip:port/<code>{function_name}</code>
+                                                                                     </div>                                                                                    
+                                                                                    
+                                                                                </div>
+                                                                                                                                                          
+                                                                            </div>
+                                                                    </div>
+                                                                    
+																</div>
+															</div><!--end .col -->
+															<!--<div class="col-xs-12">
+																<p class="clearfix">
+																	<span class="fa fa-fw fa-file-o fa-2x pull-left"></span>
+																	<span class="pull-left">
+																		<span class="text-bold">Wednesday, May 28, 2014</span><br/>
+																		<span class="opacity-50">Note by Daniel Johnson.</span>
+																	</span>
+																</p>
+																<div>
+																	<em>There should be a meeting scheduled soon.</em>
+																</div>
+															</div>--><!--end .col -->
+														</div><!--end .list-results -->
+													</div><!--end #notes -->
+													<!-- END CONTACTS NOTES -->
+                                                    
+													<!-- BEGIN CONTACTS ACTIVITY -->
+													<div class="tab-pane" id="activity">
+                                                        <br/>
+                                                        <form class="form" >
+                                                        
+                                                        <div id="comments-container22"></div>
+                                                        </form>
+														<ul class="timeline collapse-lg timeline-hairline">
+										<li class="timeline-inverted">
+											<div class="timeline-circ circ-xl style-primary"><i class="md md-event"></i></div>
+											<div class="timeline-entry">
+												<div class="card style-default-light">
+													<div class="card-body small-padding">
+														<span class="text-medium">当前版本 <a class="text-primary" href="#">v1.0</a> from <span class="text-primary">$username</span></span><br/>
+														<span class="opacity-50">
+															$details_info['algo_tm']
+														</span>
+													</div>
+												</div>
+											</div><!--end .timeline-entry -->
+										</li>
+										<li>
+											<div class="timeline-circ circ-xl style-primary-dark"><i class="md md-access-time"></i></div>
+											<div class="timeline-entry">
+												<div class="card style-default-light">
+													<div class="card-body small-padding">
+														<p>
+															<span class="text-medium">User login at <span class="text-primary" id="nowWeek">8:15 pm</span></span><br/>
+															<span class="opacity-50" id="nowTime">
+                                                                Saturday, August 2, 2019
+															</span>
+														</p>
+														Check out the service <code>$projectname</code> health
+													</div>
+												</div>
+											</div><!--end .timeline-entry -->
+										</li>
+										<li><!--md-location-on-->
+											<div class="timeline-circ circ-xl style-primary"><i class="md md-access-time"></i></div>
+											<div class="timeline-entry">
+												<div class="card style-default-light">
+													<div class="card-body small-padding">
+														<img class="img-circle img-responsive pull-left width-1" src="../../assets/img/avatar2.jpg?1404026449" alt="" />
+														<span class="text-medium">Service <code>$projectname</code> is created at <span class="text-primary">$details_info['algo_tm']</span></span><br/>
+														<span class="opacity-50">
+															$details_info['algo_tm']
+														</span>
+													</div>
+													<div class="card-body">
+														<p><em>Service <code>$projectname</code>正式上线...</em></p>
+														<img class="img-responsive" src="../static/assets/img/img14.jpg?1404589160" alt="" />
+													</div>
+												</div>
+											</div><!--end .timeline-entry -->
+										</li>
+									</ul>
+                                                        
+                                                        
+                                                        
+												</div><!--end #activity -->
+												<!-- END CONTACTS ACTIVITY -->
+
+												<!-- BEGIN CONTACTS DETAILS -->
+												<div class="tab-pane" id="details">
+                                                    <br/>
+													<h3 class="opacity-50">算法内容简介</h3>
+													<article class="text-columns-2">
+														<img class="img-circle size-3 pull-left" src="../../../assets/img/avatar7.jpg?1404026721" alt="" />
+														<h5 class="text-primary">summary</h5>
+														<p>
+															服务内容简介
+														</p>
+													</article>
+													<br/>
+													<h3 class="opacity-50">算法示例</h3>
+													<ul class="timeline collapse-lg timeline-hairline no-shadow">
+														<li class="timeline-inverted">
+															<div class="timeline-circ style-accent"></div>
+															<div class="timeline-entry">
+																<div class="card style-default-bright">
+																	<div class="card-body small-padding">
+																		<small class="text-uppercase text-primary pull-right">Example 1.</small>
+																		<p>
+																			<span class="text-lg text-medium">参数信息</span><br/>
+																			<span class="text-lg text-light">参数数量</span>
+																		</p>
+																		<p>
+																			具体细节
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</li>
+														<li>
+															<div class="timeline-circ style-accent"></div>
+															<div class="timeline-entry">
+																<div class="card style-default-bright">
+																	<div class="card-body small-padding">
+																		<small class="text-uppercase text-primary pull-right">Example 2.</small>
+																		<p>
+																			<span class="text-lg text-medium">参数信息</span><br/>
+																			<span class="text-lg text-light">参数数量</span>
+																		</p>
+																		<p>
+																			具体细节
+																		</p>
+																	</div>
+																</div>
+															</div>
+														</li>
+												
+													</ul><!--end .timeline -->
+													<br/>
+													<h3 class="opacity-50">服务依赖</h3>
+													<div class="row">
+														<div class="col-md-12 col-lg-8">
+															<dl>
+																<dt>服务1</dt>
+																<dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 95%"></div></div></dd>
+																<dt>服务2</dt>
+																<dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 85%"></div></div></dd>
+																<dt>服务3</dt>
+																<dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 69%"></div></div></dd>
+																<dt>服务4</dt>
+																<dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 60%"></div></div></dd>
+																<dt>服务5</dt>
+																<dd><div class="progress progress-hairline"><div class="progress-bar progress-bar-accent" style="width: 55%"></div></div></dd>
+															</dl>
+														</div><!--end .col -->
+													</div><!--end .row -->
+													<br/>
+										
+												</div><!--end #details -->
+												<!-- END CONTACTS DETAILS -->
+
+											</div><!--end .tab-content -->
+										</div><!--end .col -->
+										<!-- END CONTACTS MAIN CONTENT -->
+
+									</div><!--end .row -->
+								</div><!--end .hbox-column -->
+
+								<!-- BEGIN CONTACTS COMMON DETAILS -->
+								<div class="hbox-column col-md-3 style-default-light">
+									<div class="row">
+										<div class="col-xs-12">
+											<h4>问题留言</h4>
+											<br/>
+                                            <!--begin of discussion-->
+                                            <div id="comments-container"></div>
+                                            <!--end of discussion-->
+                                        </div><!--end .col -->
+									</div><!--end .row -->
+								</div><!--end .hbox-column -->
+								<!-- END CONTACTS COMMON DETAILS -->
+
+							</div><!--end .hbox-md -->
+						</div><!--end .card-tiles -->
+						<!-- END CONTACT DETAILS -->
+
+					</div><!--end .card -->
+				</div><!--end .section-body -->
+			</section>
+
+
+
+
+<script type="text/javascript"> 
+    var clipboard = new ClipboardJS(".copyMe",{ 
+        text : function(){
+            //寻找被激活的那个div pre元素,同时获取它下面的内容 
+            return $$("div#myTabContent div.active pre").text(); 
+        } 
+    });
+    clipboard.on('success',function(e){ 
+        //alert("已复制到粘贴板！"); 
+        toastr.success('复制成功!');
+        console.log(e); 
+    });
+    clipboard.on('error',function(e){ 
+        console.log(e); 
+    });
+    $$('#showsimple').click(function () {
+        // Display a success toast, with a title
+        toastr.success('复制成功!')
+    });
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+layui.use(['element', 'layer'], function(){
+  var element = layui.element
+  ,layer = layui.layer;
+  
+  element.on('tab(docDemoTabBrief)', function(data){
+      return;
+    //layer.msg('切到到了'+ data.index + '：' + this.innerHTML);
+  });
+});
+</script>
+
+
+<script>
+    //document.write(new Date().getFullYear())
+    //获取系统时间
+var newDate = '';
+getLangDate();
+//值小于10时，在前面补0
+function dateFilter(date){
+    if(date < 10){return "0"+date;}
+    return date;
+}
+function getLangDate(){
+    var dateObj = new Date(); //表示当前系统时间的Date对象
+    var year = dateObj.getFullYear(); //当前系统时间的完整年份值
+    var month = dateObj.getMonth()+1; //当前系统时间的月份值
+    var date = dateObj.getDate(); //当前系统时间的月份中的日
+    var day = dateObj.getDay(); //当前系统时间中的星期值
+    var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    var week = weeks[day]; //根据星期值，从数组中获取对应的星期字符串
+    var hour = dateObj.getHours(); //当前系统时间的小时值
+    var minute = dateObj.getMinutes(); //当前系统时间的分钟值
+    var second = dateObj.getSeconds(); //当前系统时间的秒钟值
+    var timeValue = "" +((hour >= 12) ? (hour >= 18) ? "晚上" : "下午" : "上午" ); //当前时间属于上午、晚上还是下午
+    newDate = dateFilter(year)+"年"+dateFilter(month)+"月"+dateFilter(date)+"日 "+" "+dateFilter(hour)+":"+dateFilter(minute)+":"+dateFilter(second);
+    document.getElementById("nowWeek").innerHTML = week;
+    document.getElementById("nowTime").innerHTML = newDate;
+    setTimeout("getLangDate()",1000);//亲爱的 $session.get_val('username') ，"+timeValue+"好！ 欢迎使用Arthur 2.0版本。当前时间为： "+newDate+"　"+week
+}
+</script>

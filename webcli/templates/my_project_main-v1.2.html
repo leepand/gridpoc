@@ -1,0 +1,402 @@
+$def with (uname,serviceList,user_info)
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    
+    <script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+    <link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <script type="text/javascript" src="../static/layui/layui.js"></script>
+    <script type="text/javascript" src="../static/js_new/Arthur/myservice_layerui.js"></script>
+</head>
+<style>
+.selectMsg{ width:110px; margin-right: 15px; }
+.msg_info,.msg_time,.msg_reply,.msg_opr{min-height:50px; text-align:center;}
+.msg_info{text-align:left; position: relative; }
+.msg_info img{ position: absolute; left:10px; top:10px; cursor:pointer; }
+.msg_info .user_info{ padding-left:55px; line-height:25px; }
+.msg_info .user_info h2{ color:#222; cursor:pointer; }
+.msg_info .user_info h2:hover{ color:#1AA094;}
+.msg_info .user_info p{ color:#8d8d8d; }
+.msg_reply{ color:#e15f63; }
+
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.eot?t=1499243955345'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.eot?t=1499243955345#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.woff?t=1499243955345') format('woff'), /* chrome, firefox */
+  url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.ttf?t=1499243955345') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_tnyc012u2rlwstt9.svg?t=1499243955345#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zhanghu:before { content: "\e605"; }
+
+.icon-lock1:before { content: "\e622"; }
+
+.icon-erweima:before { content: "\e62d"; }
+
+.icon-xinlangweibo:before { content: "\e63d"; }
+
+.icon-qq:before { content: "\e63e"; }
+
+.icon-icon:before { content: "\e609"; }
+
+.icon-edit:before { content: "\e602"; }
+
+.icon-computer:before { content: "\e645"; }
+
+.icon-text:before { content: "\e64d"; }
+
+.icon-guanbi:before { content: "\e62f"; }
+
+.icon-loginout:before { content: "\e608"; }
+
+.icon-shuaxin1:before { content: "\e648"; }
+
+.icon-shezhi1:before { content: "\e64a"; }
+
+.icon-gonggao:before { content: "\e614"; }
+
+.icon-menu1:before { content: "\e62a"; }
+
+.icon-wenben:before { content: "\e600"; }
+
+.icon-dengji3:before { content: "\e61e"; }
+
+.icon-dengji1:before { content: "\e628"; }
+
+.icon-dengji2:before { content: "\e629"; }
+
+.icon-dengji4:before { content: "\e62b"; }
+
+.icon-dengji5:before { content: "\e62c"; }
+
+.icon-dengji6:before { content: "\e62e"; }
+
+.icon-new1:before { content: "\e610"; }
+
+.icon-huanfu:before { content: "\e623"; }
+
+.icon-link:before { content: "\e657"; }
+
+.icon-lingsheng:before { content: "\e601"; }
+
+.icon-star:before { content: "\e783"; }
+
+.icon-dongtaifensishu:before { content: "\e603"; }
+
+.icon-prohibit:before { content: "\e73a"; }
+
+.icon-caozuo:before { content: "\e64e"; }
+
+.icon-weather:before { content: "\e89e"; }
+</style>
+<div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>个人资料</h5>
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <div align="center"><img alt="image" class="img-responsive" src="../static/images/profile.jpg" ></div>
+                        </div>
+                        <div class="ibox-content profile-content">
+                            <h4><strong>$uname</strong></h4>
+                            <p><i class="fa fa-envelope fa-fw"></i> $user_info['email']</p> <!--地址用：fa-map-marker-->
+                            <h5>
+                               关于我
+                            </h5>
+                            <p>
+                                $user_info['remark']
+                            </p>
+                            
+                            <h5>
+                               API 请求数
+                            </h5>
+                            <p><i class="fa fa-arrow-up text-success"></i> 10,084,150 requests</p>
+                            
+                            
+                            <div class="row m-t-lg">
+                                <div class="col-sm-4">
+                                    <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                                    <h5><strong>169</strong> 算法</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="line">5,3,9,6,5,9,7,3,5,2</span>
+                                    <h5><strong>28</strong> 点赞</h5>
+                                </div>
+                                <div class="col-sm-4">
+                                    <span class="bar">5,3,2,-1,-3,-2,2,3,5,2</span>
+                                    <h5><strong>240</strong> 关注</h5>
+                                </div>
+                            </div>
+                            <div class="user-button">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-default btn-sm btn-block"><i class="fa fa-thumbs-up"></i> 点赞</button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-primary btn-sm btn-block"><i class="fa fa-star-o"></i> 关注</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>最新动态</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="profile.html#">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="algo_deploy_publish.html#">发布服务</a>
+                                </li>
+                                <li><a href="#">查看我的服务</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="layui-form">
+		<blockquote class="layui-elem-quote news_search">
+			<div class="layui-inline selectMsg">
+				<select name="msgColl" lay-filter="selectMsg">
+					<option value="0">全部</option>
+			        <option value="1">已收藏</option>
+			    </select>
+			</div>
+			<div class="layui-inline">
+				<div class="layui-form-mid layui-word-aux"></div>
+               
+			</div>
+		</blockquote>
+		<table class="layui-table msg_box" lay-skin="line">
+            
+			<colgroup>
+				<col width="45%">
+				<col width="25%">
+				<col width="15%">
+				<col>
+			</colgroup>
+			<tbody class="msgHtml">
+            </tbody>
+		</table>
+</form>
+                        
+
+                        <div class="site-demo-flow" id="LAY_demo3">
+                            <div class="feed-activity-list">
+                                $for srv in serviceList:
+                                <div class="feed-element">
+                                    <a href="#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="../static/images/people.png">
+                                    </a>
+                                    
+                                    <div class="media-body ">
+                                        <small class="pull-right text-navy list-time">$srv['insert_tm']</small>
+                                        <a href="/username=$uname&;projectname=$srv['algoname']">
+                                        <strong>$srv['algoname']</strong>.</a>
+                                        <br>
+                                        <small class="text-muted"> $uname/$srv['algoname']</small>
+                                        <br>
+                                        <p>
+                                            $srv['algodesc']
+                                        </p>
+                                        <div class="actions"><!--onclick=edit_user("+uid+")-->
+                                            <a class="btn btn-xs btn-white msg_collect"><i class="fa fa-thumbs-up" onclick="praise"></i> 点赞 <strong>30</strong></a>
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-star-o"></i> 关注 <strong>10</strong></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> 显示更多</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+
+
+<!-- Peity -->
+<script src="../static/js_new/plugins/peity/jquery.peity.min.js"></script>
+<script src="../static/js_new/demo/peity-demo.js"></script>
+<script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+
+<script type="text/javascript">
+	/* 选择元素后直接转换 */
+	$$(".list-time").relativeTime();
+</script>
+
+
+
+
+
+<!--                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="../static/images/people.png">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right">5分钟前</small>
+                                        <a href="#">
+                                        <strong>优惠券推荐</strong>.</a>
+                                        <br>
+                                        <small class="text-muted">recom/Corpus_Recom</small>
+                                         <br>
+                                        <p>
+                                            针对万达广场的优惠券推荐模型
+                                        </p>
+                                        <div class="actions">
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 点赞 </a>
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-star-o"></i> 关注</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="../static/images/people.png">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right">2小时前</small>
+                                        <a href="#">
+                                        <strong>文本抽取</strong>.</a>
+                                        <br>
+                                        <small class="text-muted">nlp/text_analysis</small>
+                                         <br>
+                                        <p>
+                                            文本结构化   <span id="add-num"><em>+1</em></span>
+                                        </p>
+                                        <div class="actions">
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 点赞 </a>
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-star-o"></i> 关注</a>
+                                        </div>
+                                    </div>
+                                </div>
+-->
+
+
+
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="../static/css_new/jquery-comments.css">
+<!--<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+
+<!-- Data -->
+<script type="text/javascript" src="../static/comments/comments-data.js"></script>
+
+<!-- Libraries -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.textcomplete/1.8.0/jquery.textcomplete.js"></script>
+<script type="text/javascript" src="../static/js_new/jquery-comments.js"></script>
+
+
+
+<script>
+	/* @author:Romey
+	 * 动态点赞
+	 * 此效果包含css3，部分浏览器不兼容（如：IE10以下的版本）
+	*/
+	$$(function(){
+		$$("#praise").click(function(){
+			var praise_img = $$("#praise-img");
+			var text_box = $$("#add-num");
+			var praise_txt = $$("#praise-txt");
+			var num=parseInt(praise_txt.text());
+			if(praise_img.attr("src") == ("Images/yizan.png")){
+				$$(this).html("<img src='Images/zan.png' id='praise-img' class='animation' />");
+				praise_txt.removeClass("hover");
+				text_box.show().html("<em class='add-animation'>-1</em>");
+				$$(".add-animation").removeClass("hover");
+				num -=1;
+				praise_txt.text(num)
+			}else{
+				$$(this).html("<img src='Images/yizan.png' id='praise-img' class='animation' />");
+				praise_txt.addClass("hover");
+				text_box.show().html("<em class='add-animation'>+1</em>");
+				$$(".add-animation").addClass("hover");
+				num +=1;
+				praise_txt.text(num)
+			}
+		});
+	})
+</script>
+
+
+<script>
+layui.use('flow', function(){
+  var flow = layui.flow;
+ 
+  flow.load({
+    elem: '#LAY_demo1' //流加载容器
+    ,scrollElem: '#LAY_demo1' //滚动条所在元素，一般不用填，此处只是演示需要。
+    ,done: function(page, next){ //执行下一页的回调
+      
+      //模拟数据插入
+      setTimeout(function(){
+        var lis = [];
+        for(var i = 0; i < 8; i++){
+          lis.push('<li>'+ ( (page-1)*8 + i + 1 ) +'</li>')
+        }
+        
+        //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+        //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+        next(lis.join(''), page < 10); //假设总页数为 10
+      }, 500);
+    }
+  });
+  
+  flow.load({
+    elem: '#LAY_demo2' //流加载容器
+    ,scrollElem: '#LAY_demo2' //滚动条所在元素，一般不用填，此处只是演示需要。
+    ,isAuto: false
+    ,isLazyimg: true
+    ,done: function(page, next){ //加载下一页
+      //模拟插入
+      setTimeout(function(){
+        var lis = [];
+        for(var i = 0; i < 6; i++){
+          lis.push('<li><img lay-src="//s17.mogucdn.com/p2/161011/upload_279h87jbc9l0hkl54djjjh42dc7i1_800x480.jpg?v='+ ( (page-1)*6 + i + 1 ) +'"></li>')
+        }
+        next(lis.join(''), page < 6); //假设总页数为 6
+      }, 500);
+    }
+  });
+  
+  //按屏加载图片
+  flow.lazyimg({
+    elem: '#LAY_demo3 img'
+    ,scrollElem: '#LAY_demo3' //一般不用设置，此处只是演示需要。
+  });
+  
+});
+</script>
+
+
+
+
+

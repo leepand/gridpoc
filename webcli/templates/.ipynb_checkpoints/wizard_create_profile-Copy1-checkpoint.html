@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
+	<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+	<title>Paper Bootstrap Wizard by Creative Tim</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!-- CSS Files -->
+    <link href="../static/assets/form_service_build/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="../static/assets/form_service_build/css/paper-bootstrap-wizard.css" rel="stylesheet" />
+
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="../static/assets/form_service_build/css/demo.css" rel="stylesheet" />
+
+	<!-- Fonts and Icons -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+	<link href="../static/assets/form_service_build/css/themify-icons.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="image-container set-full-height" style="background-image: url('assets/img/paper-1.jpeg')">
+	    <!--   Creative Tim Branding   -->
+	    <a href="http://creative-tim.com">
+	         <div class="logo-container">
+	            <div class="logo">
+	                <img src="assets/img/new_logo.png">
+	            </div>
+	            <div class="brand">
+	                Creative Tim
+	            </div>
+	        </div>
+	    </a>
+
+		<!--  Made With Paper Kit  -->
+		<a href="http://demos.creative-tim.com/paper-kit?ref=paper-bootstrap-wizard" class="made-with-pk">
+			<div class="brand">PK</div>
+			<div class="made-with">Made with <strong>Paper Kit</strong></div>
+		</a>
+
+	    <!--   Big container   -->
+	    <div class="container">
+	        <div class="row">
+		        <div class="col-sm-8 col-sm-offset-2">
+
+		            <!--      Wizard container        -->
+		            <div class="wizard-container">
+		                <div class="card wizard-card" data-color="green" id="wizard">
+		                <form action="" method="">
+		                <!--        You can switch " data-color="green" "  with one of the next bright colors: "blue", "azure", "orange", "red"       -->
+
+		                    	<div class="wizard-header">
+		                        	<h3 class="wizard-title">创建一个新算法(服务)</h3>
+		                        	<p class="category">This information will let us know more about your algorithm.</p>
+		                    	</div>
+								<div class="wizard-navigation">
+									<div class="progress-with-circle">
+									    <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4" style="width: 15%;"></div>
+									</div>
+									<ul>
+			                            <li>
+											<a href="#location" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-list"></i>
+												</div>
+												项目信息
+											</a>
+										</li>
+			                            <li>
+											<a href="#type" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-direction-alt"></i>
+												</div>
+												操作类型
+											</a>
+										</li>
+			                            <li>
+											<a href="#facilities" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-panel"></i>
+												</div>
+												算法信息
+											</a>
+										</li>
+			                            <li>
+											<a href="#description" data-toggle="tab">
+												<div class="icon-circle">
+													<i class="ti-comments"></i>
+												</div>
+												描述信息
+											</a>
+										</li>
+			                        </ul>
+								</div>
+		                        <div class="tab-content">
+		                            <div class="tab-pane" id="location">
+		                            	<div class="row">
+		                                	<div class="col-sm-12">
+		                                    	<h5 class="info-text"> Let's start with the basic service details</h5>
+		                            		</div>
+		                                	<div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                        	<label>项目名称/ID</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" placeholder="service name/ID">
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group">
+		                                        	<label>项目描述</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" placeholder="service description">
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                        	<label>所属领域</label>
+		                                        	<select class="form-control">
+			                                            <option disabled="" selected="">- types -</option>
+			                                            <option>机器学习</option>
+			                                            <option>文本分析 </option>
+			                                            <option>计算机视觉</option>
+			                                            <option>深度学习</option>
+		                                        	</select>
+		                                    	</div>
+		                                	</div>
+		                                	<div class="col-sm-5">
+		                                    	<div class="form-group">
+		                                        	<label>项目标签</label>
+		                                        	<!--<div class="input-group">-->
+		                                            	<input type="text" class="form-control" placeholder="service tags">
+		                                            	<!--<span class="input-group-addon">$$</span>-->
+		                                        	<!--</div>-->
+		                                    	</div>
+		                                	</div>
+		                            	</div>
+		                            </div>
+		                            <div class="tab-pane" id="type">
+		                                <h5 class="info-text">What type of operator do you have? </h5>
+		                                <div class="row">
+		                                    <div class="col-sm-8 col-sm-offset-2">
+		                                        <div class="col-sm-4 ">
+													<div class="choice" data-toggle="wizard-checkbox">
+		                                                <input type="checkbox" name="jobb" value="Design">
+		                                                <div class="card card-checkboxes card-hover-effect">
+		                                                    <i class="ti-cloud-up"></i>
+															<p>发布</p>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+                                                    <div class="col-sm-4">
+													<div class="choice" data-toggle="wizard-checkbox">
+		                                                <input type="checkbox" name="jobb" value="Design">
+		                                                <div class="card card-checkboxes card-hover-effect">
+		                                                    <i class="ti-sharethis"></i>
+															<p>注册</p>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                        <div class="col-sm-4">
+													<div class="choice" data-toggle="wizard-checkbox">
+		                                                <input type="checkbox" name="jobb" value="Design">
+		                                                <div class="card card-checkboxes card-hover-effect">
+		                                                    <i class="ti-email"></i>
+															<p>邮件通知</p>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="tab-pane" id="facilities">
+		                                <h5 class="info-text">Tell us more about your algorithm. </h5>
+		                                <div class="row">
+		                                    <div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                        	<label>Host</label>
+		                                        	<select class="form-control">
+			                                            <option disabled="" selected="">- host -</option>
+			                                            <option>0.0.0.0</option>
+			                                            <option>127.0.0.1 </option>
+			                                            <option>47.104.210.142</option>
+		                                        	</select>
+		                                    	</div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                    	<div class="form-group">
+		                                        	<label>Port</label>
+		                                        	<select class="form-control">
+			                                            <option disabled="" selected="">- port -</option>
+			                                            <option>9001</option>
+			                                            <option>9008 </option>
+		                                        	</select>
+		                                    	</div>
+		                                    </div>
+		                                    <div class="col-sm-5 col-sm-offset-1">
+		                                    	<div class="form-group">
+		                                        	<label>算法目录</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" placeholder="/myalgo/prediction.py">
+		                                    	</div>
+		                                    </div>
+		                                    <div class="col-sm-5">
+		                                    	<div class="form-group">
+		                                        	<label>算法函数集</label>
+		                                        	<input type="text" class="form-control" id="exampleInputEmail1" placeholder="prediction.pred">
+		                                    	</div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                            <div class="tab-pane" id="description">
+		                                <div class="row">
+		                                    <h5 class="info-text"> Drop us a small description about your data input. </h5>
+		                                    <div class="col-sm-6 col-sm-offset-1">
+		                                        <div class="form-group">
+		                                            <label>数据样例</label>
+		                                            <textarea class="form-control" placeholder="" rows="9"></textarea>
+		                                        </div>
+		                                    </div>
+		                                    <div class="col-sm-4">
+		                                        <div class="form-group">
+		                                            <label>Example</label>
+		                                            <p class="description">"{n:10,x:20}"</p>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                        <div class="wizard-footer">
+	                            	<div class="pull-right">
+	                                    <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next' value='Next' />
+	                                    <input type='button' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+									</div>
+
+	                                <div class="pull-left">
+	                                    <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+	                                </div>
+	                                <div class="clearfix"></div>
+		                        </div>
+		                    </form>
+		                </div>
+		            </div> <!-- wizard container -->
+		        </div>
+	        </div> <!-- row -->
+	    </div> <!--  big container -->
+
+	    <div class="footer">
+	        <div class="container text-center">
+	            Made with <i class="fa fa-heart heart"></i> by <a href="http://www.creative-tim.com">Creative Tim</a>. Free download <a href="http://www.creative-tim.com/product/paper-bootstrap-wizard">here.</a>
+	        </div>
+	    </div>
+	</div>
+
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="../static/assets/form_service_build/js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="../static/assets/form_service_build/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="../static/assets/form_service_build/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="../static/assets/form_service_build/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="../static/assets/form_service_build/js/jquery.validate.min.js" type="text/javascript"></script>
+
+</html>

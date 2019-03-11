@@ -1,0 +1,14 @@
+{
+	"cmsName": "layuiCMS后台管理模版",
+	"version": "v2.0",
+	"author": "Leepand",
+	"homePage": "index.html",
+	"server": "centos",
+	"dataBase": "21",
+	"maxUpload": "2G",
+	"userRights": "超级管理员",
+	"description": "Seamlessly deploy and manage models/services in a scalable, reliable, and cost-optimized way.",
+	"powerby": "copyright @2018 Leepand",
+	"record": "京ICP备14040xxx号-1",
+	"keywords": "Arthur,AI,微服务,Deploy Models,Monitor Behavior,Scale Infrastructure"
+}

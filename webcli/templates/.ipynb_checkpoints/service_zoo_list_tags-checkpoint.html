@@ -1,0 +1,171 @@
+$def with (tag)
+
+<script src="../static/assets/js/arthur/serviceList/serviceZooList.js" type="text/javascript"></script>
+<style>
+.algo-info__name {
+ font-size:1.25rem;
+ font-weight:700
+}
+.algo-info-link {
+    color: #5000be;
+    text-decoration: none;
+}
+.algo-info .algo-url {
+ font-size:1.05rem;
+ color:rgba(0,0,0,.54);
+ margin-bottom:0.5rem
+}
+
+.algo-list-body {
+    max-width: 600px;
+}
+</style>
+
+<section>
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li><a href="service_zoo_list.html">Algos Market</a></li>
+            <li class="active">$tag</li>
+        </ol>
+    </div>
+    <div class="section-body" >
+        <!-- BEGIN INTRO -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-primary"><i class="fa fa-connectdevelop"></i> $tag</h1>
+            </div><!--end .col -->
+        </div><!--end .row -->
+        <!-- END INTRO -->
+        <br>
+    
+    <div class="">
+                    <form class="layui-form ">
+                        <!--class="layui-table mag0-->
+                        <div class="ibox-content">
+                            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                <ul class="layui-tab-title">
+                                    <li class="layui-this">Top Rated</li>
+                                    <li>Most called</li>
+                                    <li>Recently Added</li>
+                                </ul>
+                                <div class="layui-tab-content"> 
+                                    <div class="layui-tab-item layui-show">
+                                        <form class="layui-form">	
+                                            <table class="layui-table msg_box dataPages-ServiceList" lay-skin="line">
+                                                <colgroup>
+                                                    <col width="35%">
+                                                    <col width="25%">
+                                                    <col width="15%">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="layui-hide">
+                                                        <th>服务信息</th>
+                                                        <th>服务状态</th>
+                                                        <th>操作时间</th>
+                                                        <th>操作方式</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="servicelistHtmlMostStared"></tbody>
+                                            </table>
+                                        </form>  
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <form class="layui-form">	
+                                            <table class="layui-table msg_box dataPages-ServiceStarList" lay-skin="line">
+                                                <colgroup>
+                                                    <col width="35%">
+                                                    <col width="25%">
+                                                    <col width="15%">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="layui-hide">
+                                                        <th>服务信息</th>
+                                                        <th>服务状态</th>
+                                                        <th>操作时间</th>
+                                                        <th>操作方式</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="servicelistHtmlMostCalled"></tbody>
+                                            </table>
+                                        </form>  
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <form class="layui-form">	
+                                            <table class="layui-table msg_box dataPages-ServiceStarList" lay-skin="line">
+                                                <colgroup>
+                                                    <col width="35%">
+                                                    <col width="25%">
+                                                    <col width="15%">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="layui-hide">
+                                                        <th>服务信息</th>
+                                                        <th>服务状态</th>
+                                                        <th>操作时间</th>
+                                                        <th>操作方式</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="servicelistHtmlRecentlyAdded"></tbody>
+                                            </table>
+                                        </form>  
+                                    </div>
+                                    
+                                 </div>   
+                            </div>
+                         </div>
+                    </form>
+                </div>
+        
+    
+    
+    </div><!--end .section-body -->
+</section>
+<script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+<link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="../static/css_new/Arthur_algo_star.css" rel="stylesheet">
+<script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+<!--<script type="text/javascript" src="../static/js_new/Arthur/myservice_layerui.js"></script>-->
+<link href="../static/css_new/style.css?v=4.1.0" rel="stylesheet">
+<style>
+
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    text-shadow: none;
+}
+.breadcrumb > li {
+  opacity: 0.8;
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  color: inherit;
+  content: "/";
+  font-size: 10px;
+  padding: 0 5px;
+}
+.breadcrumb > .active {
+  color: inherit;
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 20px;
+}
+</style>
+<script type="text/javascript">
+	/* 选择元素后直接转换 */
+	$$(".list-time").relativeTime();
+</script>
+<script>
+layui.use(['element', 'layer'], function(){
+  var element = layui.element
+  ,layer = layui.layer;
+  
+  element.on('tab(docDemoTabBrief)', function(data){
+      return;
+    //layer.msg('切到到了'+ data.index + '：' + this.innerHTML);
+  });
+});
+</script>

@@ -1,0 +1,205 @@
+             <section class="section-body">
+
+                    <div class="col-sm-3">
+                        <div class="card profile-card user-profile">
+                            <div class="card-body">
+                                <div class="profile-userpic">
+                                    <img src="../static/assets/img/new_logo.png" alt="" class="avatar">
+                                </div>
+                                <h3 class="text-center name">Leepand</h3>
+                                <button type="button" id="change-photo"
+                                    class="btn ink-reaction btn-raised btn-xs btn-primary center-block">
+                                    change photo</button>
+                            </div><!--end .card-body -->
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-9">
+                        <div class="card">
+
+                            <div class="card-head">
+                                <ul class="nav nav-tabs" data-toggle="tabs">
+                                    <li class="active"><a href="#profile-edit-card">Personal Info</a></li>
+                                    <li class=""><a href="#password-form-card">Change password</a></li>
+                                    <li class=""><a href="#weight-card">Update weight</a></li>
+                                    <li class=""><a href="#avatar-form-card">Change photo</a></li>
+                                </ul>
+                            </div><!--end .card-head -->
+
+                            <div class="card-body tab-content">
+
+
+                                <div class="tab-pane active" id="profile-edit-card">
+                                    <form class="form col-md-9">
+                                        <div class="card-body ">
+                                            <div>
+                                                <label class="radio-inline radio-styled">
+                                                    <input type="radio" value="1", name="profile-gender"
+                                                        id="profle-gender-male"><span>Male</span>
+                                                </label>
+                                                <label class="radio-inline radio-styled">
+                                                    <input type="radio" value="0" name="profile-gender" checked=""
+                                                        id="profle-gender-female"><span>Female</span>
+                                                </label>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" id="profile-firstname">
+                                                        <label for="profile-firstname">Firstname</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" id="profile-lastname">
+                                                        <label for="profile-lastname">Lastname</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="profile-email">
+                                                <label for="profile-email">Email</label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" id="profile-height">
+                                                        <label for="profile-height">Height (cm)</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group control-width-normal">
+                                                <div class="input-group date" id="profle-birth-date">
+                                                    <div class="input-group-content">
+                                                        <input type="text" class="form-control">
+                                                        <label>Birth date</label>
+                                                    </div>
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-danger error-message" role="alert" >
+                                                <strong>Error:</strong> <span></span>
+                                            </div>
+                                        </div><!--end .card-body -->
+                                        <div class="card-actionbar">
+                                            <div class="card-actionbar-row">
+                                                <button type="submit" class="btn btn-primary ink-reaction">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div> <!-- end of profile-card -->
+
+                                <div class="tab-pane" id="password-form-card">
+                                    <form class="form col-md-8">
+                                        <div class="card-body floating-label">
+                                            <h3 class="text-primary">Password changing</h3>
+
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" id="passreset-password">
+                                                <label for="profile-password">Current assword</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" id="passreset-new-password1">
+                                                <label for="profile-password">New password</label>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" id="passreset-new-password2">
+                                                <label for="profile-password">New password again</label>
+                                            </div>
+                                            <div class="alert alert-danger error-message" role="alert" >
+                                                <strong>Error:</strong> <span></span>
+                                            </div>
+                                        </div><!--end .card-body -->
+                                        <div class="card-actionbar">
+                                            <div class="card-actionbar-row">
+                                                <button type="submit" class="btn  btn-primary ink-reaction">Change password</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div> <!-- end of password-form-card -->
+
+                                <div class="tab-pane" id="weight-card">
+                                    <div class="card-body floating-label">
+                                        <h3 class="text-primary">Update current weight</h3>
+                                        <form class="form form-inline col-md-10">
+
+                                            <div class="form-group control-width-normal">
+                                                <div class="input-group date" id="weight-view-date">
+                                                    <div class="input-group-content">
+                                                        <input type="text" class="form-control">
+                                                        <label>Date</label>
+                                                    </div>
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="weight-view-weight">
+                                                <label for="signup-weight">Weight (kg)</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn  btn-primary ink-reaction">Update</button>
+                                            </div>
+
+                                            <div class="alert alert-danger error-message" role="alert" >
+                                                <strong>Error:</strong> <span></span>
+                                            </div>
+                                        </form>
+                                    </div><!--end .card-body -->
+
+                                    <div class="card-body col-md-10">
+                                        <h3 class="text-primary">Your weight history</h3>
+                                        <table class="table table-striped no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Weight(kg)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <script id="weight-history-item" type="x-tmpl-mustache">
+                                                <tr>
+                                                    <td>{{date}}</td>
+                                                    <td>{{weight}}</td>
+                                                </tr>
+                                            </script>
+                                        </table>
+                                    </div>
+                                </div> <!-- end of password-form-card -->
+
+                                <div class="tab-pane" id="avatar-form-card">
+                                    <form class="form form-inline col-md-10">
+                                        <div class="card-body">
+                                            <h3 class="text-primary">Change your photo</h3>
+
+                                            <div class="form-group">
+                                                <input type="file" class="form-control" id="photo-file">
+                                                <label for="profile-password">Choose a photo file</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" class="btn  btn-primary ink-reaction">Upload</button>
+                                            </div>
+                                            <div class="alert alert-danger error-message" role="alert" >
+                                                <strong>Error:</strong> <span></span>
+                                            </div>
+
+                                        </div><!--end .card-body -->
+
+                                    </form>
+                                </div> <!-- end of avatar-form-card -->
+
+                            </div><!--end .card-body -->
+
+                        </div>
+                    </div>
+
+</section> <!-- end of section-body -->
+<link type="text/css" rel="stylesheet" href="../static/assets/css/profile.css" />
+<script type="text/javascript" src="../static/assets/js/user.js"></script>
+<script type="text/javascript" src="../static/assets/js/weights.js"></script>
+<script src="../static/assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../static/assets/js/profile.js"></script>

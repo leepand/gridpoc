@@ -1,0 +1,86 @@
+<head>
+    <script src="../static/js/custom.js" type="text/javascript"></script>
+</head>
+
+
+
+    <!-- Contents -->
+    <div id="Contents">
+        <div id="MainForm">
+            <h2><div style="color:#169c83">添加客户</div></h2>
+        <div id="Popup">
+            <div id="SubPopup">
+                <div class="form_boxC">
+                    <p class="f_cB pdg_t5">提示：带"<span class="f_cB">*</span>"号为必填项</p>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <th width="100">开发者姓名 <span class="f_cB">*</span></th>
+                            <td><div class="txtbox floatL" style="width:150px;"><input id="form_name" name="" type="text" size="12" value=""></div></td>
+                        </tr>
+                        <tr>
+                            <th>归属单位 <span class="f_cB">*</span></th>
+                            <td><div class="txtbox floatL" style="width:300px;"><input id="form_address" name="" type="text" size="30" value=""></div></td>
+                        </tr>
+                        <tr>
+                            <th>联系电话 <span class="f_cB">*</span></th>
+                            <td><div class="txtbox floatL" style="width:150px;"><input id="form_phone" name="" type="text" size="12" value=""></div></td>
+                        </tr>
+                        <tr>
+                            <th>开发者类型 <span class="f_cB">*</span></th>
+                            <td><!-- selectbox -->
+                                <div class="selectbox" style="width:230px;">
+                                    <dl class="select">
+                                        <dt class="ctype">选择（新/老）</dt>
+                                        <dd><ul>
+                                            <li><a href="#">新</a></li>
+                                            <li><a href="#">老</a></li>
+                                        </ul></dd></dl>
+                                </div>
+                                <!-- /selectbox --></td>
+                        </tr>
+                        <tr>
+                            <th>开发者等级 <span class="f_cB">*</span></th>
+                            <td><!-- selectbox -->
+                                <div class="selectbox" style="width:230px;">
+                                    <dl class="select">
+                                        <dt class="class_priv">选择（A/B/C）</dt>
+                                        <dd><ul>
+                                            <li><a href="#"> A </a></li>
+                                            <li><a href="#"> B </a></li>
+                                            <li><a href="#"> C </a></li>
+                                        </ul></dd></dl>
+                                </div>
+                                <!-- /selectbox --></td>
+                        </tr>
+                        <tr>
+                            <th>开发者状态 <span class="f_cB">*</span></th>
+                            <td><!-- selectbox -->
+                                <div class="selectbox" style="width:230px;">
+                                    <dl class="select">
+                                        <dt class="status">选择（正常/取消）</dt>
+                                        <dd><ul>
+                                            <li><a href="#">正常</a></li>
+                                            <li><a href="#">取消</a></li>
+                                        </ul></dd></dl>
+                                </div>
+                                <!-- /selectbox --></td>
+                        </tr>
+
+
+                        <tr>
+                            <th>备注</th>
+                            <td><div class="txtbox"><textarea id="form_remark" name="" cols="35" rows="2"></textarea></div><p class="f_cB pdg_t5">该项可不填，最多50字</p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- SubPopup -->
+
+            <div id="BtmBtn">
+                <div class="btn_boxB floatR mag_l20"><input name="" type="button" value="取消" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'"></div>
+                <div class="btn_box floatR"><input name="" type="button" value="提交" onclick=add_custom() onmousemove="this.className='input_move'" onmouseout="this.className='input_out'"></div>
+            </div>
+        </div>
+        </div>
+                <!-- /Popup -->
+                <!-- /Contents -->

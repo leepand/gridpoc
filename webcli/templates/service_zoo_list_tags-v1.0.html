@@ -1,0 +1,133 @@
+$def with (tag)
+
+<section>
+    <div class="section-header">
+        <ol class="breadcrumb">
+            <li><a href="service_zoo_list.html">Algos Market</a></li>
+            <li class="active">$tag</li>
+        </ol>
+    </div>
+    <div class="section-body" >
+        <!-- BEGIN INTRO -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="text-primary"><i class="fa fa-connectdevelop"></i> $tag</h1>
+            </div><!--end .col -->
+        </div><!--end .row -->
+        <!-- END INTRO -->
+        <br>
+        <div class="card"  style="margin:0px;padding:0px;"><!--card-body style-default-bright no-padding-->
+            <div class="card-body style-default-bright " style="margin:10px;padding:10px;">
+                <div class="col-sm-12">
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"><i class="fa fa-star-o"></i> 最多关注</a>
+                        </li>
+                        <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false"><i class="fa fa-cloud-download"></i>最多调用</a>
+                        </li>
+                        <li class=""><a data-toggle="tab" href="#tab-3" aria-expanded="false"><i class="fa fa-clock-o"></i>最新添加</a>
+                        </li>
+                    </ul>
+                <!--begin of tab-content-->
+                <div class="tab-content">
+                    <!--begin of tab-1-->
+                    <div id="tab-1" class="tab-pane active">    
+                        <div class="social-feed-box">
+                            <div class="ibox-content">
+                                <div>
+                                <div class="feed-activity-list">
+                           
+                                 <div class="feed-activity-list algotable">
+                                <script type="text/javascript">
+                                    $$(document).ready(function() {
+                                    get_algo_serv_list('zoo','nonewest',"$tag");
+                                    
+                                    });
+                                </script>
+                                
+                                  
+                             </div>
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>                 
+                   </div>
+                   <!--end of tab-1--> 
+                        
+                    <div id="tab-2" class="tab-pane">
+                            <div class="panel-body">
+                                <strong>敬请期待</strong>
+                                <p>comming soon!</p>
+                            </div>
+                        </div>
+
+                    <!--begin of tab-3-->
+                    <div id="tab-3" class="tab-pane">    
+                        <div class="social-feed-box">
+                            <div class="ibox-content">
+                                <div>
+                                <div class="feed-activity-list">
+                          
+                                    
+                                 <div class="feed-activity-list algotable">
+                                <script type="text/javascript">
+                                    //按照最新动态排序
+                                    $$(document).ready(function() {
+                                    get_algo_serv_list('zoo','newest',"$tag");
+                                    
+                                    });
+                                </script>
+                                
+                                  
+                             </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                 
+                   </div>
+                   <!--end of tab-3--> 
+                </div>
+                <!--end of tab-content--> 
+            </div>
+        </div>
+    </div>
+</div>
+</div><!--end .section-body -->
+</section>
+<script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+<link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<link href="../static/css_new/Arthur_algo_star.css" rel="stylesheet">
+<script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+<script type="text/javascript" src="../static/js_new/Arthur/myservice_layerui.js"></script>
+<link href="../static/css_new/style.css?v=4.1.0" rel="stylesheet">
+<style>
+
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    text-shadow: none;
+}
+.breadcrumb > li {
+  opacity: 0.8;
+  display: inline-block;
+}
+.breadcrumb > li + li:before {
+  color: inherit;
+  content: "/";
+  font-size: 10px;
+  padding: 0 5px;
+}
+.breadcrumb > .active {
+  color: inherit;
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 20px;
+}
+</style>
+<script type="text/javascript">
+	/* 选择元素后直接转换 */
+	$$(".list-time").relativeTime();
+</script>

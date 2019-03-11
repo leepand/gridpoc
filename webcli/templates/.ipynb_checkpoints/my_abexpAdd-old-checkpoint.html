@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>AB Testing Add 2.0</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+      <!--信息提示 js-->
+     <script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+    <link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="../static/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="../static/layui/public.css" media="all" />
+  
+<style>
+    .layui-form-label{display: block;width: auto;}  
+</style>
+
+</head>
+
+<body class="childrenBody">
+<form class="layui-form layui-col-space10 "><!--layui-row layui-col-space10-->
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="layui-icon">&#xe628;</i> 实验类型</label>
+		<div class="layui-input-block newsStatus" style="margin-right:20px">
+            <select name="status" lay-verify="required" id="exp_type">
+                <option value="0">一般实验</option>
+                <option value="1">机器学习</option>
+            </select>
+		</div>
+    </div>   
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="layui-icon">&#xe62c;</i> 实验名称</label>
+        <div class="layui-input-block leepand" style="margin-right:20px"><!--leepand：为了获取输入框长度，目的为计算确定按钮的长度-->
+            <input type="text" class="layui-input newsName"  lay-verify="newsName" id="exp_id" placeholder="请输入实验名称/ID">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="layui-icon">&#xe60b;</i> 实验描述</label>
+        <div class="layui-input-block" style="margin-right:20px">
+            <input type="text" class="layui-input newsName"  lay-verify="newsName" id="exp_desc" placeholder="请输入实验描述">
+        </div>
+    </div>        
+    <div class="layui-form-item">
+        <label class="layui-form-label" ><i class="layui-icon">&#xe6b2;</i> 实验组名</label>
+        <div class="layui-input-block" style="margin-right:20px">
+            <textarea placeholder="请输入待实验的组名,exp:model1,model2..." id="exp_list" class="layui-textarea abstract"></textarea>
+		</div>
+    </div>  
+    <div class="layui-form-item">
+        <label class="layui-form-label"><i class="layui-icon">&#xe857;</i> 流量分配</label>
+        <div class="layui-input-block"  >
+            <input type="radio"  name="release" title="自动"  lay-skin="primary" lay-filter="release" checked/>
+            <input type="radio"  name="release" title="手动设置"  lay-skin="primary"  lay-filter="release"/>
+            
+		</div>
+	</div>
+	<div class="layui-form-item layui-hide releaseFlux">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-block" style="margin-right:20px" >
+            <input  type="text" class="layui-input"  placeholder="请输入分流比例"  id="fluxset"/>
+		</div>			
+    </div>
+    <div class="layui-form-item" style="text-align: center;">
+        <label class="layui-form-label"><i class="layui-icon">&#xe609;</i> 发布实验</label>
+            <button  type="button" lay-submit="" lay-filter="addLink" class="layui-btn block"> 立即提交 </button>
+            <button style="margin-left: 10px;margin-right:20px;" type="button" class="layui-btn layui-btn-primary"> 取消 </button>  
+    </div>
+</form>  
+<script type="text/javascript" src="../static/layui/layui.js"></script>
+<script src="../static/js_new/Arthur/abtest_arthur.js" type="text/javascript"></script>
+
+</body>
+</html>
+

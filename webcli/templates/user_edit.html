@@ -1,0 +1,103 @@
+<head>
+<script src="../static/assets/js/arthur/userInfo/userListAdd.js" type="text/javascript"></script>
+<style>
+    .layui-form-label{width:auto;}
+    .section-body:first-child {
+    margin-top: 0px;
+}/*离section之间0距离*/
+    
+</style>
+
+
+</head>
+<script type="text/javascript">
+$$(document).ready(function() {
+    get_user_info();
+});
+</script>
+
+<section>
+    <div class="section-body">
+        <div class="card"><!--card-body style-default-bright no-padding-->
+        <div class="card-body tab-content">
+                
+        <div class="ibox-content">
+            <div style="width:100%; height:100%;background-color:#fff">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="layui-form" style="width:80%; padding-top:20px;">
+                        <!--<form class="layui-form" style="width:90%;"><form class="form-horizontal">-->
+                            <p id="form_uid" hidden="hidden">uid</p>
+                                <!--登录名开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">用户姓名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input userName" id="form_nickname" lay-verify="required" placeholder="请输入姓名">
+                                    </div>
+                                </div><!--登录名结束-->
+                                <!--用户名开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">用户名</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input userName" id="form_username" lay-verify="required" placeholder="请输入用户名">
+                                    </div>
+                                </div><!--用户名结束-->
+                                 <!--邮箱开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">邮箱</label>
+                                    <div class="layui-input-block">
+                                        <input type="email" class="layui-input userEmail" id="form_email" lay-verify="email" placeholder="请输入邮箱">
+                                    </div>
+                                </div><!--邮箱结束-->
+                                <div class="layui-row">
+                                <!--密码开始--> 
+                                <!--<div class="layui-row">-->
+                                <div class="magb15 layui-col-md4 layui-col-xs12">
+                                    <label class="layui-form-label">密码</label>
+                                    <div class="layui-input-block">
+				                        <input type="password" class="layui-input passWord" id="form_password" lay-verify="password" placeholder="请输入密码">
+                                    </div>
+                                </div><!--密码结束--> 
+                                <!--密码开始--> 
+                                <!--<div class="layui-row">-->
+                                <div class="magb15 layui-col-md4 layui-col-xs12">
+                                    <label class="layui-form-label">联系电话</label>
+                                    <div class="layui-input-block">
+				                        <input type="text" class="layui-input userName" id="form_phone" lay-verify="required" placeholder="请输入联系方式">
+                                    </div>
+                                </div><!--密码结束--> 
+                                <!--会员等级开始--> 
+                                <div class="magb15 layui-col-md4 layui-col-xs12">
+                                    <label class="layui-form-label">用户等级</label>
+                                    <div class="layui-input-block">
+                                        <select name="userGrade" class="userGrade" lay-filter="userGrade" id="test">
+                                            <option value="倔强青铜">倔强青铜</option>
+                                            <option value="永恒钻石">永恒钻石</option>
+                                            <option value="最强王者">最强王者</option>
+                                        </select>
+                                    </div>
+                                </div><!--会员等级结束--> 
+                                 </div>
+                                
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <div class="layui-input-block">
+                                        <!--<button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addUser">立即添加</button>
+                                        <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary" href="user_list.html">取消</button>-->
+                                        <button type="button" class="layui-btn layui-btn-sm" data-dismiss="modal" onclick=update_user_info()>立即更新</button>
+                                        <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">取消</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+    </div>
+</section>
+    
+
+
+
+

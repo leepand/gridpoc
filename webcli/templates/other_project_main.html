@@ -1,0 +1,191 @@
+$def with (username,serviceList,user_info)
+<script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+<!--<script type="text/javascript" src="../static/js_new/Arthur/myservice_layerui.js"></script>-->
+<script src="../static/js_new/Arthur/abtestListAdd.js" type="text/javascript"></script>
+<script src="../static/assets/js/arthur/serviceList/otherserviceList.js" type="text/javascript"></script>
+<script src="../static/assets/js/arthur/userInfo/userInfoGetInsert.js" type="text/javascript"></script>
+<script src="../static/assets/js/arthur/userInfo/userProfile.js" type="text/javascript"></script>
+
+<link type="text/css" rel="stylesheet" href="../static/assets/css/Arthur/Arthur_algo_star.css" />
+
+
+<style>
+.algo-info__name {
+ font-size:1.25rem;
+ font-weight:700
+}
+.algo-info-link {
+    color: #5000be;
+    text-decoration: none;
+}
+.algo-info .algo-url {
+ font-size:1.05rem;
+ color:rgba(0,0,0,.54);
+ margin-bottom:0.5rem
+}
+
+.algo-list-body {
+    max-width: 600px;
+}
+
+</style>
+<style>
+.text-navy {
+    color: #23b7e5;
+}
+.sidebard-panel .feed-element, .media-body, .sidebard-panel p {
+    font-size: 12px;
+}
+.feed-element img.img-circle, .dropdown-messages-box img.img-circle {
+    width: 38px;
+    height: 38px;
+}
+.feed-element > .pull-left {
+    margin-right: 10px;
+}
+.feed-element:first-child {
+    margin-top: 0;
+}
+.feed-activity-list .feed-element {
+    border-bottom: 1px solid #e7eaec;
+}
+.feed-element, .media-body {
+    overflow: hidden;
+}
+.feed-element, .feed-element .media {
+    margin-top: 15px;
+}
+.feed-element {
+    padding-bottom: 15px;
+}
+</style>
+<style>
+.userGrade{width:230px;}
+.userStatus{width:230px;}
+
+.selectMsg{ width:110px; margin-right: 15px; }
+.myablist_info,.ab_createtime,.ab_status,.msg_opr{min-height:50px; text-align:center;}
+.myablist_info{text-align:left; position: relative; }
+.myablist_info>img{ position: absolute; left:10px; top:10px; cursor:pointer; }
+.myablist_info .abmeta_info{ padding-left:10px; line-height:25px; }
+.myablist_info .abmeta_info h2{ color:#222; cursor:pointer; }
+.myablist_info .abmeta_info h2:hover{ color:#1AA094;}
+.myablist_info .abmeta_info p{ color:#8d8d8d; }
+.ab_status{ color:#e15f63; }
+    
+</style>
+<script>
+    $$(document).ready(function(){
+    var request;
+    request=parseInt(10000*Math.random());
+    console.log(request,'request');                  
+    $$("#request_cnt").html(request);
+});
+</script>
+
+<section class="section-body">
+    <div class="col-sm-3">
+        <div class="card profile-card user-profile">
+            <div class="card-body">
+                <div class="profile-userpic">
+                    <img src="../static/assets/img/new_logo.png" alt="" class="avatar">
+                </div>
+                <h4 class="text-center name">$username (<i class="fa fa-star"></i><span id="algo_User_star_all">50</span>)</h4>
+                <hr>
+                <p><i class="fa fa-envelope fa-fw"></i> $user_info['email']</p> <!--地址用：fa-map-marker-->
+                <h5>
+                    关于我
+                </h5>
+                <p>
+                    $user_info['remark']
+                </p>
+                <p><i class="fa fa-arrow-up text-success"></i><span id="cnt_req"> 10,084,150</span>  requests</p><!--request_cnt-->
+                <p><i class="fa fa-cloud-upload text-success"></i> <span id="algo_User_algocnt"> 10,000</span> services</p>
+            </div><!--end .card-body -->
+        </div>
+    </div>
+    <div class="col-sm-9">
+        <div class="card">
+            <div class="card-body style-default-bright">
+                <form class="layui-form ">
+                    <div class="card card-bordered style-default-light layui-hide">
+                        <div class="card-head">
+                            <header>
+                                <button type="button" class="btn ink-reaction btn-raised btn-primary addService_btn"><i class="fa fa-plus"></i> 添加服务</button>
+                            </header>
+                        </div>
+                    </div>
+                       
+                        <!--class="layui-table mag0-->
+                        <div class="ibox-content">
+                            <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                <ul class="layui-tab-title">
+                                    <li class="layui-this">我的算法</li>
+                                    <li>我的收藏</li>
+                                </ul>
+                                <div class="layui-tab-content"> 
+                                    <div class="layui-tab-item layui-show">
+                                        <form class="layui-form">	
+                                            <table class="layui-table msg_box dataPages-ServiceList" lay-skin="line">
+                                                <colgroup>
+                                                    <col width="35%">
+                                                    <col width="25%">
+                                                    <col width="15%">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="layui-hide">
+                                                        <th>服务信息</th>
+                                                        <th>服务状态</th>
+                                                        <th>操作时间</th>
+                                                        <th>操作方式</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="My_servicelistHtml"></tbody>
+                                            </table>
+                                        </form>  
+                                    </div>
+                                    <div class="layui-tab-item">
+                                        <form class="layui-form">	
+                                            <table class="layui-table msg_box dataPages-ServiceStarList" lay-skin="line">
+                                                <colgroup>
+                                                    <col width="35%">
+                                                    <col width="25%">
+                                                    <col width="15%">
+                                                    <col>
+                                                </colgroup>
+                                                <thead>
+                                                    <tr class="layui-hide">
+                                                        <th>服务信息</th>
+                                                        <th>服务状态</th>
+                                                        <th>操作时间</th>
+                                                        <th>操作方式</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="MyStar_servicelistHtml"></tbody>
+                                            </table>
+                                        </form>  
+                                    </div>
+                                 </div>   
+                            </div>
+                         </div>
+                    </form>
+            </div>
+        </div>   
+    </div>  
+</section> <!-- end of section-body -->
+<link type="text/css" rel="stylesheet" href="../static/assets/css/profile.css" />
+<script type="text/javascript" src="../static/assets/js/weights.js"></script>
+<script src="../static/assets/js/libs/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+<!--<script type="text/javascript" src="../static/assets/js/profile.js"></script>-->
+<script>
+layui.use(['element', 'layer'], function(){
+  var element = layui.element
+  ,layer = layui.layer;
+  
+  element.on('tab(docDemoTabBrief)', function(data){
+      return;
+    //layer.msg('切到到了'+ data.index + '：' + this.innerHTML);
+  });
+});
+</script>

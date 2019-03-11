@@ -1,0 +1,229 @@
+$def with (name,lab_status,exp_info_list,exp_name_list,data_date)
+$var title:
+    AB test实验页
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <script src="../static/js_new/plugins/echarts/echarts-all.js"></script>    
+</head>
+<div class="wrapper wrapper-content animated fadeInUp">
+                <div class="ibox">
+                    <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="m-b-md">
+                                    <a href="abtest.html#" class="btn btn-white btn-xs pull-right">返回</a>
+                                    <h2>实验名称/ID<br>$name</h2>
+                                </div>
+                                <dl class="dl-horizontal">
+                                    <dt>状态：</dt>
+                                    <dd><span class="label $lab_status['label']">$lab_status['desc']</span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <dl class="dl-horizontal">
+
+                                    <dt>转化信息：</dt>
+                                    <dd>曝光&转化</dd>
+                                    <dt>总曝光数：</dt>
+                                    <dd>$lab_status['total_participants']</dd>
+                                    <dt>总转化数：</dt>
+                                    <dd><a class="text-navy">$lab_status['total_conversions']</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-sm-7" id="cluster_info">
+                                <dl class="dl-horizontal">
+
+                                    <dt>创建时间：</dt>
+                                    <dd>$lab_status['created_at']</dd>
+                                    <dt>考察指标：</dt>
+                                    <dd>$lab_status['kpi']</dd>
+                                    <dt>实验描述：</dt>
+                                    <dd>$lab_status['description']</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <dl class="dl-horizontal">
+                                    <dt>转化情况</dt>
+                                    <dd>
+                                        <div class="progress progress-striped active m-b-sm">
+                                            <div style="width: $lab_status['total_coversion_rate']%;" class="progress-bar"></div>
+                                        </div>
+                                        <small>当前总的转化率 <strong>$lab_status['total_coversion_rate']%</strong></small>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>  
+                            
+                        <div class="row m-t-sm">
+                            <div class="col-sm-12">
+                                <div class="panel blank-panel">
+                                    <div class="panel-heading">
+                                        <div class="panel-options">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active"><a href="project_detail.html#tab-1" data-toggle="tab">调用方式</a>
+                                                </li>
+                                                <li class=""><a href="project_detail.html#tab-2" data-toggle="tab">查看详情</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div><!--end of panel blank-panel-->
+                                    <div class="panel-body">
+
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab-1">
+                                                <div class="span3">
+                                                    <div class="well">
+                                                        <ul class="nav nav-list">
+                                                            <li><a href="javascript:void(0);">参数列表</a></li>
+                                                                <li class="nav-header" style="color:#FFFFFF">实验名称</li>
+                                                                    <li><a href="javascript:void(0);" >$name</a></li>
+                                                                <li class="nav-header" style="color:#FFFFFF">实验组</li>
+                                                                    <li><a href="javascript:void(0);" >$exp_name_list</a></li>
+           
+                                                          </ul>
+                                                    </div>
+                                              </div>
+                                              <div class="span9">
+                                                    <p>To create your first experiment, simply make a <code>GET</code> request to your Arthur A/B testing server's 'participate' endpoint.</p>
+                                                    <pre><code>$$ curl <span class="base-domain">http://127.0.0.1:5000</span>/participate?experiment=<span class="highlight">$name</span>&amp;alternatives=<span class="highlight">$exp_name_list</span>&amp;client_id=<span class="highlight">&lt;A UNIQUE CLIENT ID&gt;</span></code></pre>
+
+                                                    <p>To create a conversion, make another request to your server's 'convert' endpoint.</p>
+                                                    <pre><code>$$ curl <span class="base-domain">http://127.0.0.1:5000</span>/convert?experiment=<span class="highlight">$name</span>&amp;client_id=<span class="highlight">&lt;A UNIQUE CLIENT ID&gt;</span></code></pre>
+                                                
+                                                </div>
+                                                </div>   <!--end of tab-1-->
+                                                                                
+                                        
+                                            <div class="tab-pane" id="tab-2">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Case</th>
+                                                            <th>Conversions</th>
+                                                            <th>Conv Rate</th>
+                                                            <th>Confidence</th>
+                                                            <th>Winner</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        $for exp in exp_out:
+                                                        <tr>  
+                                                            <td>   
+                                                                <a href="#">$exp['name']</a> <span class="$exp['is_control_label']">$exp['is_control_is']</span>
+                                                            </td>
+                                                            <td>
+                                                                $exp['completed_count']/$exp['participant_count']
+                                                            </td>
+                                                            <td>
+                                                                $exp['conversion_rate']0%<p class="small">
+                                                                ±$exp['confidence_interval']
+                                                                </p>
+                                                            </td>
+                                                            <td>
+                                                                $exp['confidence_level']
+                                                            </td>
+                                                            <td>
+                                                                <p class="small">
+                                                                  <span class="$exp['is_winner_class']"><i class="$exp['is_winner_check']"></i>$exp['is_winner_result']</span>  
+                                                                </p>
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <br>
+                                                <div id="echarts-line-chart" style="width: 1100px;height:400px;"></div>
+                                            </div><!--end of tab2-->
+                                        </div><!--end of tab-content-->
+                                    </div><!--end of panel-body-->
+                                </div><!--end of col-sm-12-->
+                            </div><!--end of row m-t-sm-->
+                        </div><!--end of ibox-content-->
+                    </div><!--end of ibox-->
+                </div><!--end of wrapper-->
+            
+                
+           
+
+
+             
+                     
+                        
+                            
+                        
+                
+           
+<style>
+.highlight {
+  background: #777;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+</style>
+               
+
+
+<script type="text/javascript">
+    var lineChart = echarts.init(document.getElementById("echarts-line-chart"));
+    var option = {
+    title: {
+        text: 'Cumulative Conversion Rate'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:$:exp_name_list//['实验1','实验2']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data:$:data_date// ['2018-11-06','2018-11-07','2018-11-08','2018-11-09','2018-11-10','2018-11-11','2018-11-12']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: $:exp_info_list
+};
+    lineChart.setOption(option);
+</script>
+
+    <!-- Flot -->
+
+        <!-- Flot demo data -->
+    <!-- 引入 echarts.js 要放在head 不染报错-->
+
+<style>
+    .echart-chart_leepand {
+        display: block;
+        height: 200px;
+    }
+    .echart-chart-content_leepand {
+    width: 100%;
+    height: 100%;
+    }
+</style>
+
+
+<script type="text/javascript" src="../static/js_new/Arthur/abtesting.js"></script>
+<link href="../static/js_new/Arthur/abtesting.css" type="text/css" rel="stylesheet">
+

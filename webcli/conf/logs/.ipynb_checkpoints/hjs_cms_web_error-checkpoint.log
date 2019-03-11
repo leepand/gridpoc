@@ -1,0 +1,39 @@
+[2019-02-15 10:39:45 +0800] [11700] [INFO] Starting gunicorn 19.4.1
+[2019-02-15 10:39:45 +0800] [11700] [INFO] Listening at: http://127.0.0.1:5010 (11700)
+[2019-02-15 10:39:45 +0800] [11700] [INFO] Using worker: sync
+[2019-02-15 10:39:45 +0800] [11704] [INFO] Booting worker with pid: 11704
+[2019-02-15 10:39:45 +0800] [11705] [INFO] Booting worker with pid: 11705
+[2019-02-15 10:39:45 +0800] [11706] [INFO] Booting worker with pid: 11706
+[2019-02-15 10:39:45 +0800] [11707] [INFO] Booting worker with pid: 11707
+[2019-02-15 10:39:45 +0800] [11708] [INFO] Booting worker with pid: 11708
+[2019-02-15 10:39:45 +0800] [11709] [INFO] Booting worker with pid: 11709
+[2019-02-15 10:39:45 +0800] [11710] [INFO] Booting worker with pid: 11710
+[2019-02-15 10:39:45 +0800] [11711] [INFO] Booting worker with pid: 11711
+[2019-02-15 10:39:45 +0800] [11712] [INFO] Booting worker with pid: 11712
+[2019-02-15 10:39:45 +0800] [11713] [INFO] Booting worker with pid: 11713
+Traceback (most recent call last):
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/application.py", line 255, in process
+    return p(lambda: process(processors))
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 83, in _processor
+    self._load()
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 104, in _load
+    d = self.store[self.session_id]
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 251, in __getitem__
+    return self.decode(pickled)
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 210, in decode
+    return pickle.loads(pickled)
+EOFError
+
+Traceback (most recent call last):
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/application.py", line 255, in process
+    return p(lambda: process(processors))
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 83, in _processor
+    self._load()
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 104, in _load
+    d = self.store[self.session_id]
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 251, in __getitem__
+    return self.decode(pickled)
+  File "/Users/leepand/anaconda2/lib/python2.7/site-packages/web/session.py", line 210, in decode
+    return pickle.loads(pickled)
+EOFError
+

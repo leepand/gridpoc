@@ -1,0 +1,169 @@
+$def with (username,serviceList,user_info)
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="../static/css_new/style.css?v=4.1.0" rel="stylesheet">
+    <script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+    <link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <!--<script type="text/javascript" src="../static/layui/layui.js"></script>-->
+    <script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+    <script type="text/javascript" src="../static/js_new/Arthur/myservice_layerui.js"></script>
+    <link href="../static/css_new/Arthur_algo_star.css" rel="stylesheet">
+</head>
+
+
+
+<div class="wrapper wrapper-content">
+        <div class="row animated fadeInRight">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>个人资料</h5>
+                    </div>
+                    <div>
+                        <div class="ibox-content no-padding border-left-right">
+                            <div align="center"><img alt="image" class="img-responsive" src="../static/images/profile.jpg" ></div>
+                        </div>
+                        <div class="ibox-content profile-content">
+                            <h4><strong><label>$username (<i class="fa fa-star"></i><span id="algo_User_star_all">50</span>)</label></strong></h4>
+                            <p><i class="fa fa-map-marker"></i> $user_info['email']</p>
+                            <h5>
+                               关于我
+                            </h5>
+                            <p>
+                                $user_info['remark']
+                            </p>
+                            
+                            <h5>
+                               API 请求数
+                            </h5>
+                            <p><i class="fa fa-arrow-up text-success"></i> 10,084,150 requests</p>
+                               <div class="row m-t-lg">
+                                <div class="col-sm-6">
+                                  <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
+                                  <h5><strong><span id="algo_User_algocnt">0</span></strong> 算法</h5>
+                                </div>
+                              <div class="col-sm-6">
+                                  <span class="line">5,3,9,6,5,9,7,3,5,2</span>
+                                  <h5><strong>169</strong> 到访</h5>
+                                </div>
+                            </div>
+                      
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>最新动态</h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="profile.html#">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="algo_deploy_publish.html#">发布服务</a>
+                                </li>
+                                <li><a href="#">查看我的服务</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div>
+                            <div class="feed-activity-list">
+                                <div class="site-demo-flow" id="LAY_demo3">
+                            <div class="feed-activity-list algotable">
+                                <script type="text/javascript">
+                                    $$(document).ready(function() {
+                                    get_algo_serv_list("$username",'nonewest','NonetagQuery');
+                                    });
+                                </script>
+
+                            </div>
+
+                            
+                                    
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</div>
+
+
+<!-- Peity -->
+<script src="../static/js_new/plugins/peity/jquery.peity.min.js"></script>
+<script src="../static/js_new/demo/peity-demo.js"></script>
+<script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+
+<script type="text/javascript">
+	/* 选择元素后直接转换 */
+	$$(".list-time").relativeTime();
+</script>
+
+
+
+
+
+<!--                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="../static/images/people.png">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right">5分钟前</small>
+                                        <a href="#">
+                                        <strong>优惠券推荐</strong>.</a>
+                                        <br>
+                                        <small class="text-muted">recom/Corpus_Recom</small>
+                                         <br>
+                                        <p>
+                                            针对万达广场的优惠券推荐模型
+                                        </p>
+                                        <div class="actions">
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 点赞 </a>
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-star-o"></i> 关注</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="feed-element">
+                                    <a href="profile.html#" class="pull-left">
+                                        <img alt="image" class="img-circle" src="../static/images/people.png">
+                                    </a>
+                                    <div class="media-body ">
+                                        <small class="pull-right">2小时前</small>
+                                        <a href="#">
+                                        <strong>文本抽取</strong>.</a>
+                                        <br>
+                                        <small class="text-muted">nlp/text_analysis</small>
+                                         <br>
+                                        <p>
+                                            文本结构化
+                                        </p>
+                                        <div class="actions">
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> 点赞 </a>
+                                            <a class="btn btn-xs btn-white"><i class="fa fa-star-o"></i> 关注</a>
+                                        </div>
+                                    </div>
+                                </div>
+-->
+            
+    <!-- Data Tables/分页 -->
+    <link href="../static/css_new/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+<!-- Data Tables -->
+<script src="../static/js_new/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="../static/js_new/plugins/dataTables/dataTables.bootstrap.js"></script>

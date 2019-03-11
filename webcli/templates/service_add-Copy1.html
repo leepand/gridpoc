@@ -1,0 +1,286 @@
+<head>
+<link rel="stylesheet" href="../static/layui/css/layui.css" media="all" />
+<link rel="stylesheet" href="../static/layui/public.css" media="all" />
+<link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+<script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+<script type="text/javascript" src="../static/layui/layui.js"></script>
+<script src="../static/js_new/Arthur/serviceUserArthur.js" type="text/javascript"></script>
+
+<!-- Data picker -->
+ <link href="../static/css_new/plugins/datapicker/datepicker3.css" rel="stylesheet">
+<script src="../static/js_new/plugins/datapicker/bootstrap-datepicker.js"></script>
+ <!-- Color picker -->
+<script src="../static/js_new/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- Clock picker -->
+<script src="../static/js_new/plugins/clockpicker/clockpicker.js"></script>
+<!-- Toastr script -->
+<link href="../static/css_new/plugins/toastr/toastr.min.css" rel="stylesheet">
+<script src="../static/js_new/plugins/toastr/toastr.min.js"></script>
+
+<style>
+    .layui-form-label{display: inline-block;width: auto;}  
+</style>
+
+
+</head>
+
+<div class="wrapper wrapper-content">
+    <div class="ibox ">
+            <div class="ibox-title">
+                <h5>配置服务</h5>
+
+            </div>
+        <div class="ibox-content">
+            <div style="width:100%; height:100%;background-color:#fff">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="layui-form" style="width:80%; padding-top:20px;">
+                        <!--<form class="layui-form" style="width:90%;"><form class="form-horizontal">-->
+                            <p id="form_uid" hidden="hidden">uid</p>
+                                <!--项目开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label"><span style="color:red;font-size: 16px">*</span> 项目名称</label>
+                                    <div class="layui-input-block">
+                                        
+                                        <input type="text" class="layui-input projectName" id="form_projname" lay-verify="required" placeholder="请输入项目名称">
+                                    </div>
+                                        
+                                </div><!--项目结束-->
+                                
+                                <!--项目描述开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">项目描述</label>
+                                    <div class="layui-input-block"><!--disabled="" -->
+                                        <input type="text" class="layui-input projectDesc" id="form_projectdesc" placeholder="请输入项目描述">       
+                                    </div>                                   
+                                </div>  <!--项目描述结束-->
+                                <!--项目标签开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">标签</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input projtctTags" id="form_tags" placeholder="nlp,dm">
+                                    </div>
+                                </div><!--项目ID结束-->
+                                
+                                <div class="layui-row"><!--begin of 模型-->
+                                    <div class="magb15 layui-col-md6 layui-col-xs12">
+                                        <label class="layui-form-label"><span style="color:red;font-size: 16px">*</span> 文件目录</label>
+                                          <div class="layui-input-block">
+                                            <input type="text"  placeholder="/tmp/predict.py" class="layui-input funcDir" id="form_funcspath">
+                                        </div> 
+                                     </div> 
+                                    <div class="magb15 layui-col-md6 layui-col-xs12">
+                                        <label class="layui-form-label"><span style="color:red;font-size: 16px">*</span> 主函数列表</label>
+                                          <div class="layui-input-block">
+                                                <input type="text"  placeholder="predict" class="layui-input funcList" id="form_funclist">
+                                        </div> 
+                                     </div> 
+                                </div><!--end of 模型-->
+                                <div class="layui-row"><!--begin of IP：port-->
+                                    <div class="magb15 layui-col-md6 layui-col-xs12">
+                                        <label class="layui-form-label"><span style="color:red;font-size: 16px">*</span> Host</label>
+                                          <div class="layui-input-block">
+                                            <input type="text"  placeholder="0.0.0.0" class="layui-input host" id="form_host">
+                                        </div> 
+                                     </div> 
+                                    <div class="magb15 layui-col-md6 layui-col-xs12">
+                                        <label class="layui-form-label"><span style="color:red;font-size: 16px">*</span> 可用Port</label>
+                                          <div class="layui-input-block">
+                                                <input type="text"  placeholder="8080" class="layui-input port" id="form_port">
+                                        </div> 
+                                     </div> 
+                                </div><!--end of IP：port-->
+                                <!--开发者开始-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">所属开发者</label>
+                                    <div class="layui-input-block">
+                                        <input type="text" class="layui-input userName" disabled="" placeholder="leepand">
+                                    </div>
+                                </div><!--开发者结束-->
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">所属领域</label>
+                                        <div class="layui-input-block">
+                                        <select name="algoField" class="algoField" lay-filter="userStatus" id="form_algo_field">
+                                            <option value="0">文本分析</option>
+                                            <option value="1">机器学习</option>
+                                            <option value="2">计算机视觉</option>
+                                            <option value="3">深度学习</option>
+                                        </select>
+                                        </div>
+                                </div>
+                            
+                                <!--begin of layui-row-->
+                                <div class="layui-row">
+ 
+                                <!--会员等级开始--> 
+                                <div class="magb15 layui-col-md6 layui-col-xs12">
+                                    <label class="layui-form-label">操作类型</label>
+                                    <div class="layui-input-block">
+                                        <select name="operType" class="operType" lay-filter="operType" id="form_opertype">
+                                            <option value="注册">注册</option>
+                                            <option value="发布">发布</option>
+                                        </select>
+                                    </div>
+                                </div><!--会员等级结束--> 
+     
+                                <div class="magb15 layui-col-md6 layui-col-xs12">
+                                        <label class="layui-form-label">项目完成时间</label>
+                                        <div class="form-group" id="data_1">
+                                            <div class="input-group date" >
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                <input type="text" class="layui-input" value="2018-11-11" id="form_projecttm">
+                                            </div>
+                                        </div>
+                                </div>
+
+                                    
+                            </div><!--end of layui-row-->
+                            <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">开启邮件通知</label>
+                                    <div class="layui-input-block emailmsg">
+                                        <input type="radio" name="email" value="是" title="是" checked id="form_emailmsg">
+                                        <input type="radio" name="email" value="否" title="否" id="form_emailmsg">
+                                    </div>
+                                </div>
+                            <div class="layui-form-item layui-row layui-col-xs12">
+                                    <label class="layui-form-label">数据样例</label>
+                                    <div class="layui-input-block">
+                                        <textarea placeholder="请输入数据样例" class="layui-textarea InstallDesc" id="form_remark"></textarea>
+                                    </div>
+                            </div>
+                                <div class="layui-form-item layui-row layui-col-xs12">
+                                    <div class="layui-input-block">
+                                        <!--<button class="layui-btn layui-btn-sm" lay-submit="" lay-filter="addUser">立即添加</button>
+                                        <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary" href="user_list.html">取消</button>-->
+                                        <button type="button" class="layui-btn layui-btn-sm" data-dismiss="modal" onclick=add_service()><i class="fa fa-plus"></i>  添加服务</button>
+                                        <button type="reset" class="layui-btn layui-btn-sm layui-btn-primary">取消</button>
+                                    </div>
+                                </div>
+                                
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+
+
+
+
+
+<script>
+$$(document).ready(function () {
+        $$('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true
+});
+    
+       // Code for demos
+        function createColorpickers() {
+                // Api demo
+                var bodyStyle = $$('body')[0].style;
+                $$('#demo_apidemo').colorpicker({
+                    color: bodyStyle.backgroundColor
+                }).on('changeColor', function (ev) {
+                    bodyStyle.backgroundColor = ev.color.toHex();
+                });
+
+                // Horizontal mode
+                $$('#demo_forceformat').colorpicker({
+                    format: 'rgba', // force this format
+                    horizontal: true
+                });
+
+                $$('.demo-auto').colorpicker();
+
+                // Disabled / enabled triggers
+                $$(".disable-button").click(function (e) {
+                    e.preventDefault();
+                    $$("#demo_endis").colorpicker('disable');
+                });
+
+                $$(".enable-button").click(function (e) {
+                    e.preventDefault();
+                    $$("#demo_endis").colorpicker('enable');
+                });
+            }
+
+            createColorpickers();
+    
+    
+    
+ });
+</script>
+
+
+
+
+
+
+<!-- 1. Define some markup -->
+
+<script>
+    //init
+    var clipboard = new Clipboard('.btn');
+    //优雅降级:safari 版本号>=10,提示复制成功;否则提示需在文字选中后，手动选择“拷贝”进行复制
+    clipboard.on('success', function(e) {
+        //alert('复制成功!');
+        toastr.success('Token信息复制成功!');
+        e.clearSelection();
+    });
+    clipboard.on('error', function(e) {
+        alert('请选择"拷贝"进行复制!')
+    });
+</script>
+
+<!--<button type="button" class="btn btn-white" id="showsimple">显示简单设置</button>-->
+<script type="text/javascript"> 
+    var clipboard = new ClipboardJS(".copyMe",{ 
+        text : function(){
+            //寻找被激活的那个div pre元素,同时获取它下面的内容 
+            return $$("div#myTabContent div.active pre").text(); 
+        } 
+    });
+    clipboard.on('success',function(e){ 
+        //alert("已复制到粘贴板！"); 
+        toastr.success('复制成功!');
+        console.log(e); 
+    });
+    clipboard.on('error',function(e){ 
+        console.log(e); 
+    });
+    $$('#showsimple').click(function () {
+        // Display a success toast, with a title
+        toastr.success('复制成功!')
+    });
+</script>
+
+
+
+
+
+
+<!--<div class="layui-form-item layui-row layui-col-xs12">
+    <label class="layui-form-label">Token信息</label>
+    <div class="layui-input-block"><!--disabled="" -->
+<!--        <input type="text" class="layui-input userName" id="form_token"  readonly="readonly" value="ec424190ac2eccea7a78">   <a class="copyMe dropdown-toggle count-info" data-clipboard-action="copy" data-clipboard-target="#form_token" data-toggle="dropdown" href="#"><span class="label label-primary">copy</span></a>
+                                          
+     </div>
+</div> -->
+
+
+<script>
+//渲染service add form中所属领域/操作类型和邮件通知的样式
+$$(function(){
+layui.use(['form','layer'],function(){
+    var form = layui.form
+        layer = parent.layer === undefined ? layui.layer : top.layer,
+        $$ = layui.jquery;
+})  
+});
+</script>

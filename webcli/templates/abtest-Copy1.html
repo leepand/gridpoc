@@ -1,0 +1,311 @@
+$def with (exp_list)
+$var title:
+    AB test实验页
+<head>
+<script src="../static/js/popwin.js" type="text/javascript"></script>
+<script src="../static/js/custom.js" type="text/javascript"></script>
+<link href="../static/laypage/layui.css" type="text/css" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="favicon.ico"> <link href="../static/footable/bootstrap.min.css?v=3.3.6">
+    <link href="../static/footable/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="../static/footable/footable.core.css" rel="stylesheet">
+
+    <link href="../static/footable/animate.css" rel="stylesheet">
+<link href="../static/footable/style.css?v=4.1.0" rel="stylesheet">
+   <!-- <link href="../static/footable/bootstrap-rtl.css" type="text/css" rel="stylesheet">-->
+<!--<link href="../static/css/abtest.css" rel="stylesheet" type="text/css" media="screen,print"/> 状态颜色部分移入base.css-->
+</head>
+
+<!-- Contents -->
+<div id="Contents">
+
+<!-- TopMain -->
+<div id="TopMain">
+    
+<!-- selectbox -->
+<div class="selectbox mag_r20 floatL">
+    <span class="sttl">A/B实验检索：</span>
+    <dl class="select" style="width:100px;">
+        <dt class="search_status">全部</dt>
+        <dd><ul>
+            <li><a href="#">全部</a></li>
+            <li><a href="#">进行中</a></li>
+            <li><a href="#">已结束</a></li>
+    </ul></dd></dl>
+</div>
+<!-- /selectbox -->
+
+<!-- textbox -->
+<div class="txtbox floatL mag_r20">
+<span class="sttl">模糊查找：</span>
+<input id="search_data" type="text" size="20" placeholder="实验ID/名称">
+</div>
+<!-- /textbox -->
+<div class="btn_box floatL"><input name="" type="button" value="查找" onclick=search_abtest_list() onmousemove="this.className='input_move'" onmouseout="this.className='input_out'"></div>
+</div>
+<!-- /TopMain -->
+
+<!-- MainForm -->
+<div id="MainForm">
+<div class="form_boxA">
+    <h2><div style="color:#169c83">找到匹配实验数据：</div></h2>
+
+
+<center style="padding-top: 20px">
+		<a style="font-size: 40px;font-weight: 200">A/B Testing实验结果展示<span class="layui-badge layui-bg-blue">Beta</span></a>
+	
+		<div style="width: 80%;padding-top: 20px">
+			<blockquote class="layui-elem-quote">A/B Testing实验结果展示。</blockquote>
+			<!--以下为两个必须div元素-->
+			<div id="table"></div>
+			<div id="pageBar"></div>
+		</div>
+
+</center>
+
+
+<p class="msg">共找到<td>$len(exp_list)</td>条记录</p>
+<!-- <p class="msg">共找到<span id="data_count">0</span>条记录</p>-->
+
+
+
+    
+
+
+
+                      
+                        <div class="ibox-content">
+
+                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                <thead>
+                                <tr>
+
+                                    <th data-toggle="true">产品</th>
+                                    <th>名字</th>
+                                    <th>电话</th>
+                                    <th data-hide="all">公司</th>
+                                    <th data-hide="all">参数</th>
+                                    <th data-hide="all">采购数量</th>
+                                    <th data-hide="all">日期</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>2015韩国童装韩版牛仔童短裤</td>
+                                    <td>袁岳</td>
+                                    <td>0800 051213</td>
+                                    <td>深圳市有大福实业有限公司</td>
+                                    <td><span class="pie">0.52/1.561</span></td>
+                                    <td>200</td>
+                                    <td>2015.09.10</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>300米速进口日本原丝耐磨</td>
+                                    <td>付守永</td>
+                                    <td>0500 780909</td>
+                                    <td>广州重兑诺贸易有限公司</td>
+                                    <td><span class="pie">6,9</span></td>
+                                    <td>400</td>
+                                    <td>2015.10.14</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>单肩包品牌外贸女包批发</td>
+                                    <td>张有为</td>
+                                    <td>0800 1111</td>
+                                    <td>广州纳依斯商贸发展有限公司</td>
+                                    <td><span class="pie">3,1</span></td>
+                                    <td>750</td>
+                                    <td>2015.08.22</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2015新款辣妈孙俪周迅同款</td>
+                                    <td>李全福 </td>
+                                    <td>(016977) 0648</td>
+                                    <td>营口港荟网络科技股份有限公司</td>
+                                    <td><span class="pie">4,9</span></td>
+                                    <td>180</td>
+                                    <td>2015.11.19</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>300米速进口日本原丝耐磨</td>
+                                    <td>付守永</td>
+                                    <td>0500 780909</td>
+                                    <td>广州重兑诺贸易有限公司</td>
+                                    <td><span class="pie">6,9</span></td>
+                                    <td>400</td>
+                                    <td>2015.10.14</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>正品印度红油
+                                    </td>
+                                    <td>袁岳</td>
+                                    <td>0800 051213</td>
+                                    <td>深圳市有大福实业有限公司</td>
+                                    <td><span class="pie">0.52/1.561</span></td>
+                                    <td>200</td>
+                                    <td>2015.09.10</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2015新款辣妈孙俪周迅同款</td>
+                                    <td>李全福 </td>
+                                    <td>(016977) 0648</td>
+                                    <td>营口港荟网络科技股份有限公司</td>
+                                    <td><span class="pie">4,9</span></td>
+                                    <td>180</td>
+                                    <td>2015.11.19</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>美国原装进口电子烟油
+                                    </td>
+                                    <td>袁岳</td>
+                                    <td>0800 051213</td>
+                                    <td>深圳市有大福实业有限公司</td>
+                                    <td><span class="pie">0.52/1.561</span></td>
+                                    <td>200</td>
+                                    <td>2015.09.10</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>300米速进口日本原丝耐磨</td>
+                                    <td>付守永</td>
+                                    <td>0500 780909</td>
+                                    <td>广州重兑诺贸易有限公司</td>
+                                    <td><span class="pie">6,9</span></td>
+                                    <td>400</td>
+                                    <td>2015.10.14</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>单肩包品牌外贸女包批发</td>
+                                    <td>张有为</td>
+                                    <td>0800 1111</td>
+                                    <td>广州纳依斯商贸发展有限公司</td>
+                                    <td><span class="pie">3,1</span></td>
+                                    <td>750</td>
+                                    <td>2015.08.22</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2015新款辣妈孙俪周迅同款</td>
+                                    <td>李全福 </td>
+                                    <td>(016977) 0648</td>
+                                    <td>营口港荟网络科技股份有限公司</td>
+                                    <td><span class="pie">4,9</span></td>
+                                    <td>180</td>
+                                    <td>2015.11.19</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>300米速进口日本原丝耐磨</td>
+                                    <td>付守永</td>
+                                    <td>0500 780909</td>
+                                    <td>广州重兑诺贸易有限公司</td>
+                                    <td><span class="pie">6,9</span></td>
+                                    <td>400</td>
+                                    <td>2015.10.14</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>正品印度红油
+                                    </td>
+                                    <td>袁岳</td>
+                                    <td>0800 051213</td>
+                                    <td>深圳市有大福实业有限公司</td>
+                                    <td><span class="pie">0.52/1.561</span></td>
+                                    <td>200</td>
+                                    <td>2015.09.10</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2015新款辣妈孙俪周迅同款</td>
+                                    <td>李全福 </td>
+                                    <td>(016977) 0648</td>
+                                    <td>营口港荟网络科技股份有限公司</td>
+                                    <td><span class="pie">4,9</span></td>
+                                    <td>180</td>
+                                    <td>2015.11.19</td>
+                                    <td><a href="#"><i class="fa fa-check text-navy"></i> 通过</a></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5">
+                                        <ul class="pagination pull-right"></ul>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+            
+
+
+<!-- /MainForm -->
+</div>
+<!-- /Contents -->
+
+<div class="ibox-content">
+    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="3">
+    <!--<table cellpadding="0" cellspacing="0" class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">-->
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>实验ID/名称</th>
+            <th>实验创建时间</th>
+            <th>实验描述</th>
+            <th>优胜状态</th>
+            <th>优胜组</th>
+            <th>实验状态</th>
+            <th>总转化</th>
+            <th>总曝光</th>
+            <th>KPI</th>
+            <th>KPIs</th>
+            <th>详情</th>
+        </tr>
+        </thead>
+        <tbody>  
+        $for exp in exp_list:
+            <tr>
+                <td class="align_r">$loop.index</td>
+                <td>$exp['name']</td>
+                <td >$exp['created_at']</td>
+                <td>$exp['description']</td>
+                <td><a href="#"><i class="fa fa-check text-navy"></i> $exp['has_winner']['result']</a></td>
+                <!--<td class="state state$exp['has_winner']['status']">$exp['has_winner']['result']</td>-->
+                <td>$exp['winner']</td>
+                <td class="state state$exp['is_paused']['status']">$exp['is_paused']['result']</td>
+                <td>$exp['total_conversions']</td>
+                <td>$exp['total_participants']</td>
+                <td>$exp['kpi']</td>
+                <td>$exp['kpis']</td>
+                <!--<td><div class='popup01'><a href='#' onclick=edit_order('"+oid+"')>编辑</a></div> | <a href='#' onclick=del_order('"+ oid +"')>删除</a></td>-->
+                <td><a href="/name=$exp['name']" title="查看实验详情">查看详情</a></td> <!--/expdetails/name=...-->
+            </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td clospan="5">
+                <ul class="pagination pull-left"></ul>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script>
+        $$(document).ready(function() {
+            $$('.footable').footable();
+            $$('.footable2').footable();
+        });
+</script>
+<!-- 全局js -->
+<script src="../static/footable/footable.all.min.js"></script>
+

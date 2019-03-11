@@ -1,0 +1,181 @@
+$def with (content)
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Arthur.io Admin - Profile</title>
+
+		<!-- BEGIN META -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="keywords" content="your,keywords">
+		<meta name="description" content="Short explanation about this website">
+		<!-- END META -->
+        <base href="/"/>
+		<!-- BEGIN STYLESHEETS -->
+        <link rel="stylesheet" href="../static/layui/css/layui.css" media="all" />
+        <link rel="stylesheet" href="../static/layui/public.css" media="all" />
+        
+		<link href='http://fonts.googleapis.com/css?family=Roboto:300italic,400italic,300,400,500,700,900' rel='stylesheet' type='text/css'/>
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/theme-default/bootstrap.css?1422792965" />
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/theme-default/materialadmin.css?1425466319" />
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/theme-default/font-awesome.min.css?1422529194" />
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/theme-default/material-design-iconic-font.min.css?1421434286" />
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/timeline.css" />
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/autocomplete.css" />
+		<link type="text/css" rel="stylesheet" href="../static/assets/css/nutrients.css" />
+		<!-- END STYLESHEETS -->
+        <script src="../static/js_new/jquery.min.js?v=2.1.4"></script>
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="assets/js/libs/utils/html5shiv.js?1403934957"></script>
+		<script type="text/javascript" src="assets/js/libs/utils/respond.min.js?1403934956"></script>
+		<![endif]-->
+	</head>
+	<body class="menubar-hoverable header-fixed ">
+
+		<!-- BEGIN HEADER-->
+		<header id="header" >
+		    <div class="headerbara">
+		        <!-- Brand and toggle get grouped for better mobile display -->
+		        <div class=" navbar navbar-default">
+
+		            <!-- Brand and toggle get grouped for better mobile display -->
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		                    <span class="sr-only">Toggle navigation</span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                <div class="navbar-brand">
+		                    <div class="brand-holder">
+		                        <a href="service_zoo_list.html">
+		                            <span class="text-lg text-bold text-primary">Arthur.io</span>
+		                        </a>
+		                    </div>
+		                </div>
+		            </div>
+
+		            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+		                <ul class="nav navbar-nav main-text-nav navChange"  id="">
+		                    <li class="active" ><a href="service_zoo_list.html">算法市场</a></li>
+		                    <li ><a href="abtest.html" >Dashboard</a></li>
+		                    <li ><a href="my_abexp.html" >我的空间</a></li>
+                        </ul>   
+
+		                <div class="nav navbar-nav navbar-right">
+		                    <!-- Collect the nav links, forms, and other content for toggling -->
+		                    <div class="headerbar-right">
+		                        <ul class="header-nav header-nav-options">
+		                        </ul><!--end .header-nav-options -->
+
+		                        <ul class="header-nav header-nav-profile user-profile">
+		                            <li class="dropdown"><!--avatar.png-->
+		                                <a href="javascript:void(0);" class="dropdown-toggle ink-reaction" data-toggle="dropdown">
+		                                    <img src="../static/assets/img/new_logo.png" alt="" class="avatar" />
+		                                    <span class="profile-info name">
+		                                        Leepand
+                                                <small>Administrator</small>
+		                                    </span>
+		                                </a>
+		                                <ul class="dropdown-menu animation-dock">
+		                                    <li class="dropdown-header">Settings</li>
+		                                    <li><a href="profile.html">My profile</a></li>
+		                                    <li><a href="profile.html">Change password</a></li>
+		                                    <li class="divider"></li>
+		                                    <li><a href="#" class="logout"><i class="fa fa-fw fa-lock"></i> Logout</a></li>
+		                                </ul><!--end .dropdown-menu -->
+		                            </li><!--end .dropdown -->
+		                        </ul><!--end .header-nav-profile -->
+
+		                    </div><!--end #header-navbar-collapse -->
+		                </div>
+
+		            </div> <!--collapse navbar-collapse -->
+
+		        </div>
+
+
+		    </div>
+		</header>
+		<!-- END HEADER-->
+
+		<!-- BEGIN BASE-->
+		<div id="base">
+
+			<!-- BEGIN OFFCANVAS LEFT -->
+			<div class="offcanvas">
+			</div><!--end .offcanvas-->
+			<!-- END OFFCANVAS LEFT -->
+
+			<!-- BEGIN CONTENT-->
+			<div id="content">
+
+				<!-- BEGIN PROFILE HEADER -->
+
+				<!-- END PROFILE HEADER  -->
+                $:content
+			</div><!--end #content-->
+			<!-- END CONTENT -->
+
+		</div><!--end #base-->
+		<!-- END BASE -->
+
+		<!-- BEGIN JAVASCRIPT -->
+        
+		<!--<script src="../static/assets/js/libs/jquery/jquery-1.11.2.min.js"></script>-->
+		<!--<script src="../static/assets/js/libs/jquery/jquery-migrate-1.2.1.min.js"></script>-->
+		<script src="../static/assets/js/libs/bootstrap/bootstrap.min.js"></script>
+		<script src="../static/assets/js/libs/spin.js/spin.min.js"></script>
+		<script src="../static/assets/js/libs/autosize/jquery.autosize.min.js"></script>
+		<script src="../static/assets/js/libs/nanoscroller/jquery.nanoscroller.min.js"></script>
+		<script src="../static/assets/js/libs/mustache.min.js"></script>
+		<script src="../static/assets/js/libs/js.cookie.js"></script>
+		<link rel="stylesheet" type="text/css" href="../static/assets/css/theme-default/libs/toastr/toastr.css?1425466569">
+		<script src="../static/assets/js/libs/toastr/toastr.js"></script>
+		<script src="../static/assets/js/libs/jquery.autocomplete.min.js"></script>
+
+		<script src="../static/assets/js/core/source/App.js"></script>
+		<script src="../static/assets/js/core/source/AppNavigation.js"></script>
+		<script src="../static/assets/js/core/source/AppOffcanvas.js"></script>
+		<script src="../static/assets/js/core/source/AppCard.js"></script>
+		<script src="../static/assets/js/core/source/AppForm.js"></script>
+		<script src="../static/assets/js/core/source/AppNavSearch.js"></script>
+		<script src="../static/assets/js/core/source/AppVendor.js"></script>
+		<script src="../static/assets/js/core/demo/Demo.js"></script>
+		<!-- END JAVASCRIPT -->
+
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+		<script type="text/javascript" src="../static/assets/js/libs/moment/moment-timezone-with-data.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css" />
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+
+		<script type="text/javascript" src="../static/assets/js/user.js"></script>
+        <script type="text/javascript" src="../static/assets/js/weights.js"></script>
+        <script type="text/javascript" src="../static/assets/js/page.js"></script>
+        <script type="text/javascript" src="../static/assets/js/nav_change.js"></script>
+
+		<!--<script type="text/javascript" src="../static/assets/js/activities.js"></script>-->
+		<!--<script type="text/javascript" src="../static/assets/js/consumption.js"></script>-->
+		<!--<script type="text/javascript" src="../static/assets/js/timeline.js"></script>-->
+
+		<script>
+		$$('.datetime-picker').datetimepicker({
+		        defaultDate: new Date(),
+		        icons:{
+		            time: 'fa fa-clock-o',
+		            date: 'fa fa-calendar',
+		            up: 'fa fa-chevron-up',
+		            down: 'fa fa-chevron-down',
+		            previous: 'fa fa-chevron-left',
+		            next: 'fa fa-chevron-right',
+		            today: 'fa fa-screenshot',
+		            clear: 'fa fa-trash',
+		            close: 'fa fa-remove'
+		        }});
+		</script>
+
+	</body>
+</html>

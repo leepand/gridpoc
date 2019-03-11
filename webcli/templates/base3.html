@@ -1,0 +1,325 @@
+$def with (content)
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <base href="/"/>
+    <title> Arthur- 主页</title>
+    <!--为了统一规范，定义按钮尺寸的 CSS 类：layui-btn-mini 改为 layui-btn-xs、layui-btn-small 改为 layui-btn-sm、layui-btn-big 改为 layui-btn-lg，升级版本时务必注意-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script type="text/javascript" src="../static/layui/layui.js"></script>
+    <link rel="stylesheet" href="../static/layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../static/layui/public.css" media="all" />
+    <script type="text/javascript" src="../static/layui/layui.js"></script>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="../static/css_new/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="../static/css_new/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="../static/css_new/animate.css" rel="stylesheet">
+    <link href="../static/css_new/style.css?v=4.1.0" rel="stylesheet">
+    <link href="../static/css_new/Arthur.css" rel="stylesheet">
+    <link href="../static/css_new/plugins/footable/footable.core.css" rel="stylesheet">
+    <script src="../static/js_new/jquery.min.js?v=2.1.4"></script>
+    <script src="../static/js_new/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../static/js_new/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../static/js_new/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--<script src="../static/js_new/plugins/layer/layer.min.js"></script>-->
+    <!--<script type="text/javascript" src="../static/layui/layui.all.js"></script>-->
+    <!--copy js-->
+   <script src="../static/js_new/clipboard.min.js"></script>
+    <!--信息提示 js-->
+    <script src="../static/js_new/plugins/sweetalert/sweetalert.min.js"></script>
+    <link href="../static/css_new/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+</head>
+<!--<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">-->
+
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    
+    <div id="wrapper">
+        
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="font-size:20px;">
+                                        <!--<i class="fa fa-area-chart"></i>-->
+                                        <i class="fa fa-connectdevelop"></i>
+                                        <strong class="font-bold">Arthur.io</strong>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="logo-element">Arthur
+                        </div>
+                    </li>
+
+                    <li>
+                        <a class="J_menuItem" href="index.html">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label" style="font-size:16px;">主页</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa fa-bar-chart-o"></i>
+                            <span class="nav-label" style="font-size:16px;">数据仪表盘</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="index.html">服务信息统计</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-flask"></i> 
+                            <span class="nav-label" style="font-size:16px;">A/B Testing管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="abtest.html">AB实验查询</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="abtest_create.html">创建新实验</a>
+                            </li>
+                        </ul>
+                    </li>                    
+                   
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cloud"></i> 
+                            <span class="nav-label" style="font-size:16px;">算法服务Zoo</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="service_zoo_list.html">服务查看</a>
+                            </li>
+                        </ul>
+                    </li>        
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-heartbeat"></i> 
+                            <span class="nav-label" style="font-size:16px;">我的空间</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="my_project_main.html">我的服务</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="service_list.html">服务发布</a>
+                            </li>
+                             <li>
+                                <a class="J_menuItem" href="my_abexp.html">我的实验</a>
+                            </li>
+                        </ul>
+                    </li>     
+                   
+                    
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user-secret"></i> 
+                            <span class="nav-label" style="font-size:16px;">用户中心</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" href="user_list.html">用户中心</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="user_grade.html">会员等级</a>
+                            </li>
+                        </ul>
+                    </li>   
+
+
+                </ul>
+            </div>
+        </nav>
+        
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-info " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <div>
+                                <a href="javascript:;"><i class="layui-icon" data-icon="&#xe705;">&#xe705;</i><cite>使用文档</cite></a>
+                            </div>
+                        </li>
+                        <!--消息提醒开始-->
+                            <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                            </a>
+                                
+                      
+                                
+                            <ul class="dropdown-menu dropdown-alerts">            
+                                <li>
+                                    <a href="mailbox.html">
+                                        <div>
+                                            <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
+                                            <span class="pull-right text-muted small">4分钟前</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="profile.html">
+                                        <div>
+                                            <i class="fa fa-qq fa-fw"></i> 3条新回复
+                                            <span class="pull-right text-muted small">12分钟钱</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="text-center link-block">
+                                        <a class="J_menuItem" href="notifications.html">
+                                            <strong>查看所有 </strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                 </ul>
+                            </li> 
+                        <!--消息提醒结束-->
+                        <!--添加项目开始-->
+                            <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-plus"></i> 
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                <li>
+                                    <!--<a href="service_add.html">-->
+                                    <a class="addService_btn">
+                                        <div>
+                                            <i class="fa fa-upload fa-fw"></i> 发布服务
+                                            <span class="pull-right text-muted small">4分钟前</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="my_project_main.html">
+                                        <div>
+                                            <i class="fa fa-eye fa-fw"></i> 查看我的服务
+                                            <span class="pull-right text-muted small">12分钟钱</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="text-center link-block">
+                                        <a class="J_menuItem" href="notifications.html">
+                                            <strong>查看所有 </strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                                 </ul>
+                            </li> 
+                        <!--添加项目结束-->
+                         <!--用户相关信息开始-->
+                        <!--$session.get_val("username")参见view_base.py-->
+                         <li class="dropdown">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                                <i class="fa fa-user"></i>
+                            </a>
+                          <ul class="dropdown-menu dropdown-alerts">
+                               <li>
+                                    <a href="#">
+                                        <div>
+                                             Signed in as $session.get_val("username") 
+                                        </div>
+                                    </a>
+                                </li>
+                            <li class="divider"></li>
+                              
+                               
+                                    <li><a href="/my_project_main.html#"><i class="fa fa-file-text-o  fa-fw"></i> 我的算法</a>
+                                    </li>
+                                    <li><a href="buttons.html#"><i class="fa fa-pencil  fa-fw"></i> 修改信息</a>
+                                    </li>
+                             <li class="divider"></li>
+                                    <li><a href="/logout"><i class="fa fa-sign-out  fa-fw"></i> 退出登陆</a>
+                                    </li>
+                                
+            
+                        </ul>
+                             </li>
+                         <!--用户相关信息结束-->
+
+                    </ul>
+                </nav>
+        <div class="container">  
+             $:content
+        </div>  
+                
+    </div>
+  </div>
+        
+                
+        <!--右侧部分结束-->
+  </div>     
+
+    <!-- 全局js -->
+
+
+    <!-- 自定义js -->
+    <script src="../static/js_new/hAdmin.js?v=4.1.0"></script>
+      
+    <!-- 第三方插件 -->
+    <script src="../static/js_new/plugins/pace/pace.min.js"></script>
+    <script src="../static/js_new/index.js"></script>
+    <script src="../static/js_new/content.js?v=1.0.0"></script>
+    <script src="../static/js_new/Arthur/serviceAdd.js" type="text/javascript"></script>
+
+    
+<style>
+    .container{
+        overflow-x:hidden;
+        padding:0px;
+        width:100%;
+    }
+    </style>
+    <script>
+        window.onload=function(){
+            var height=$$(window).height()-50;
+            $$(".container").height(height);
+        }
+    </script>
+    
+    
+
+</body>
+
+</html>

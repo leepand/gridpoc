@@ -1,0 +1,225 @@
+$def with (name)
+$var title:
+    AB test实验页
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <link href="../static/js_new/Arthur/abtesting.css" type="text/css" rel="stylesheet">
+    <link href="../static/css_new/Arthur/abtest_details.css" type="text/css" rel="stylesheet">
+
+    <script src="../static/js_new/plugins/echarts/echarts-all.js"></script> 
+    <script type="text/javascript" src="../static/layui/layui.js"></script>
+</head>
+<style>
+.section-body:first-child {
+    margin-top: 0px;
+}/*离section之间0距离*/
+    
+
+</style>
+
+<!--<div class="wrapper wrapper-content animated fadeInUp">-->
+<section>
+    <!--<div class="section-header">
+         <ol class="breadcrumb">
+             <li><a href="my_abexp.html">AB Testing</a></li>
+             <li class="active">实验详情</li>
+         </ol>
+    </div>-->
+    <div class="section-body">
+            <div class="card"><!--card-body style-default-bright no-padding col-lg-12-->
+            <div class="card-body style-default-bright" no-padding>
+                
+                <div class="ibox">
+                    <div class="ibox-content">
+                         <div class="ab-details-header">
+                             <h3 class="name" id="id_abName">
+                               None
+                             </h3>   
+                             <div class="desc">
+                                 <p id="id_description_title">jaahah</p>
+                             </div>                       
+                             <!--<div class="created-at">created: 2019-01-15 13:05 | traffic fraction: 1</div>-->
+                             <div class="controls">
+                                 <form class="layui-form">
+                                     <div class="layui-inline">
+                                         <a class="layui-btn  layui-btn-sm layui-btn-myCSS1   pause_exp"></a> 
+                                     </div>
+                                     <div class="layui-inline">
+                                         <a class="layui-btn  layui-btn-sm layui-btn-myCSS1 layui-hide  end_exp"><i class="fa fa-check-circle"></i> 停止实验</a> 
+                                     </div>
+                                     <div class="layui-inline">
+                                         <a class="layui-btn  layui-btn-sm layui-btn-myCSS1  edit_desc"></a> 
+                                     </div>
+                                    <div class="layui-inline">
+                                         <a class="layui-btn  layui-btn-sm layui-btn-myCSS2  reset_winner"></a> 
+                                     </div>
+                                    <div class="layui-inline">
+                                         <a class="layui-btn  layui-btn-sm layui-btn-myCSS2  reset_exp"></a> 
+                                     </div>
+                                     
+                                     <!--<button class="btn btn-small btn-danger" data-toggle="modal" data-target="#confirm-delete-modal"><i class="icon-white icon-trash"></i> Delete</button>
+                                     <button class="btn btn-small btn-info"><i class="icon-white icon-share-alt"></i> Export</button>-->
+                                </form>
+                             </div>
+                        </div>
+
+                        
+                        <br>
+                     
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <dl class="dl-horizontal">
+
+                                    <dt>转化信息：</dt>
+                                    <dd>曝光&转化</dd>
+                                    <dt>总曝光数：</dt>
+                                    <dd id="id_total_participants">0</dd>
+                                    <dt>总转化数：</dt>
+                                    <dd><a class="text-navy" id="id_total_conversionss">0</a>
+                                    </dd>
+                                </dl>
+                            </div>
+                            <div class="col-sm-7" id="cluster_info">
+                                <dl class="dl-horizontal">
+
+                                    <dt>创建时间：</dt>
+                                    <dd id="id_created_at">None</dd>
+                                    <dt>考察指标：</dt>
+                                    <dd id="id_kpis">defult</dd>
+                                    <dt>实验描述：</dt>
+                                    <dd id="id_description">这家伙很懒，没有设置实验描述</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                        <div class="row">
+                            <div class="col-sm-12 exp_process_info">
+              
+                            </div>
+                        </div>
+                        <div class="row m-t-sm">
+                            <div class="col-sm-12">
+                                <div class="ibox-content">
+                                    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+                                        <ul class="layui-tab-title">
+                                            <li class="layui-this">查看详情</li>
+                                            <li>调用方式</li>
+                                        </ul>                                                        
+                                        <div class="layui-tab-content">
+                                            <div class="layui-tab-item layui-show">
+                                               <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Case</th>
+                                                            <th>Conversions</th>
+                                                            <th>Conv Rate</th>
+                                                            <th>Confidence</th>
+                                                            <!--<th>Winner</th>-->
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody class="exp_alt_info"></tbody>
+                                                </table>
+                                                <br>
+                                                <div id="echarts-line-chart" style="width: 1100px;height:400px;"></div>                                                
+                                            
+                                            </div><!--end of tab1-->  
+                         
+                                            <div class="layui-tab-item">
+                                                <h3 id="menubar-pin">参数信息</h3>
+                                                <div class="alert alert-callout alert-info">
+                                                    实验名称/ID <code>$name</code>;
+                                                    实验组 <code id="id_api_namespace">&lt;ul&gt;</code>
+                                                </div>
+                                                
+                                                <h3 id="menubar-pin">曝光</h3>
+                                                <p>
+                                                    To create your first experiment, simply make a <code>GET</code> request to your Arthur A/B testing server's 'participate' endpoint.
+                                                </p>
+                                                <div class="alert alert-callout alert-success">
+                                                $$ curl <span class="base-domain">http://127.0.0.1:5000</span>/participate?experiment=<span><code>$name</code></span><span id="id_api_namespace_url"></span>&amp;client_id=<code><span>&lt;A UNIQUE CLIENT ID&gt;</span></code>
+                                                </div>
+                                                
+                                                                                                
+                                                <h3 id="menubar-pin">转化</h3>
+                                                <p>
+                                                    To create a conversion, make another request to your server's 'convert' endpoint.
+                                                </p>
+                                                <div class="alert alert-callout alert-success">
+                                                $$ curl <span class="base-domain">http://127.0.0.1:5000</span>/convert?experiment=<span><code>$name</code></span>&amp;client_id=<code><span>&lt;A UNIQUE CLIENT ID&gt;</span></code>
+                                                </div>
+                                                
+            
+                                            </div><!--end of tab2-->           
+                                        </div><!--end of layui-tab-content-->
+                                    </div><!--end of layui-tab--> 
+                                </div><!--end of ibox-content--> 
+                            </div> <!--end of col-sm-12--> 
+                        </div> <!--end of row m-t-sm--> 
+                        
+                        
+                       
+                        </div><!--end of ibox-content-->
+                    </div><!--end of ibox-->
+                </div><!--end of wrapper-->
+ </div></div>           
+</section>                
+           
+
+
+             
+                     
+                        
+                            
+                        
+                
+           
+<style>
+.highlight {
+  background: #777;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+</style>
+               
+
+
+
+
+    <!-- Flot -->
+
+        <!-- Flot demo data -->
+    <!-- 引入 echarts.js 要放在head 不染报错-->
+
+<style>
+    .echart-chart_leepand {
+        display: block;
+        height: 200px;
+    }
+    .echart-chart-content_leepand {
+    width: 100%;
+    height: 100%;
+    }
+</style>
+
+
+<script type="text/javascript" src="../static/js_new/Arthur/abtesting.js"></script>
+<script type="text/javascript" src="../static/js_new/Arthur/myabtest_details.js"></script>
+    
+
+<script>
+layui.use(['element', 'layer','form'], function(){
+  var element = layui.element,form = layui.form
+  ,layer = layui.layer;
+  
+  element.on('tab(docDemoTabBrief)', function(data){
+      return;
+    //layer.msg('切到到了'+ data.index + '：' + this.innerHTML);
+  });
+    
+    
+});
+</script>
+    

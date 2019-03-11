@@ -1,0 +1,180 @@
+.alt-controls form {
+  margin: 0;
+  display: inline-block;
+}
+.ab-details-header {
+  min-height: 65px;
+  position: relative;
+}
+.ab-details-header button {
+  float: left;
+  margin-left: 5px;
+}
+ div.ab-details-header a.layui-btn {
+  float: left;
+  margin-left: 5px;
+}   
+.ab-details-header .controls {
+  top: 10px;
+  right: 0;
+  position: absolute;
+}
+.ab-details-header h3 {
+  margin-right: 25px;
+  margin-bottom: 0;
+}
+.ab-details-header .desc {
+  margin: 10px 0 15px;
+}
+    
+.ab-details-header form,
+.alt-controls form {
+  margin: 0;
+  display: inline-block;
+}
+.btn-inverse {
+    color: #ffffff;
+    background-color: #585858;
+    /*border-color: #404040;*/
+}
+.layui-btn-myCSS2 {
+    color: #ffffff;
+    background-color: #CC6633;     
+}
+.btn-warning {
+    color: #ffffff;
+    background-color: #CC6633;
+    /*border-color: #404040;*/
+}
+.layui-btn-myCSS1 {
+    color: #ffffff;
+    background-color: #585858;  
+}
+/*
+.btn-inverse:active:hover,
+.btn-inverse.active:hover,
+.btn-inverse:active:focus,
+.btn-inverse:active,
+
+
+.btn-inverse:active,
+.btn-inverse.active {
+    color: #ffffff;
+    background-color: #000000;
+    border-color: #404040;
+}*/
+
+tr td span.circle {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 7px;
+    float: left;
+}
+td .alt-name {
+  margin-left: 25px;
+}   
+span.circle i.icon-ok {
+  margin-top: -4px;/*-2px*/
+  margin-left: 1px;
+}  
+.icon-ok {
+  background-position: -288px 0;
+  color: #FFFFFF;
+}
+/*tr td {
+    padding-right: 22px;
+    font-weight: 300;
+    text-align: right;
+    border-top:    1px solid rgba(255, 255, 255, .05);
+    border-left:   1px solid rgba(0, 0, 0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+  }*/
+
+
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../glyphicons-halflings.png");
+  /*background-position: 14px 14px;*/
+  background-repeat: no-repeat;
+}
+
+
+/* Chart color values.*/
+.color-1 {
+  background: #E23630;
+  stroke: #E23630;
+}
+.color-2 {
+  background: #308B3F;
+  stroke: #308B3F;
+}
+.color-3 {
+  background: #225AAC;
+  stroke: #225AAC;
+}
+.color-4 {
+  background: #e1e319;
+  stroke: #e1e319;
+}
+.color-5 {
+  background: #EA7F13;
+  stroke: #EA7F13;
+}
+.color-6 {
+  background: #613095;
+  stroke: #613095;
+}
+.color-7 {
+  background: #992322;
+  stroke: #992322;
+}
+.color-8 {
+  background: #AB3D97;
+  stroke: #AB3D97;
+}
+.color-9 {
+  background: #7E466F;
+  stroke: #7E466F;
+}
+.color-10 {
+  background: #A4433A;
+  stroke: #A4433A;
+}
+.color-11 {
+  background: #B8C6D7;
+  stroke: #B8C6D7;
+}
+.color-12 {
+  background: #5D300B;
+  stroke: #5D300B;
+}
+.color-13 {
+  background: #D09104;
+  stroke: #D09104;
+}
+.color-14 {
+  background: #E99E62;
+  stroke: #E99E62;
+}
+/* End chart color values */    
+div.ab-details-header h3.name,
+div.ab-details-header h3.name a {
+    color: #f28500;
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+  }
+div.ab-details-header h3.name a:hover {
+    text-decoration: underline;
+}

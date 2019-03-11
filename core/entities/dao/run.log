@@ -1,0 +1,14 @@
+[2018-12-18 10:25:22 +0800] [24221] [INFO] Starting gunicorn 19.4.1
+[2018-12-18 10:25:22 +0800] [24221] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2018-12-18 10:25:22 +0800] [24221] [ERROR] Retrying in 1 second.
+[2018-12-18 10:25:23 +0800] [24221] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2018-12-18 10:25:23 +0800] [24221] [ERROR] Retrying in 1 second.
+[2018-12-18 10:25:24 +0800] [24221] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2018-12-18 10:25:24 +0800] [24221] [ERROR] Retrying in 1 second.
+[2018-12-18 10:25:25 +0800] [24221] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2018-12-18 10:25:25 +0800] [24221] [ERROR] Retrying in 1 second.
+[2018-12-18 10:25:26 +0800] [24221] [ERROR] Connection in use: ('127.0.0.1', 5000)
+[2018-12-18 10:25:26 +0800] [24221] [ERROR] Retrying in 1 second.
+[2018-12-18 10:25:27 +0800] [24221] [ERROR] Can't connect to ('127.0.0.1', 5000)
+Missing required field in data.yml: host, so using defult info.            redis_host=127.0.0.1            redis_port=6379            redis_db=5            psql_url=postgres://localhost/
+Running the Arthur server failed. Please see the logs above for details.

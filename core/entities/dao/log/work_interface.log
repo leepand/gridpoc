@@ -1,0 +1,21 @@
+sudo: saferun: command not found
+sudo: ./saferun: command not found
+sudo: ./saferun: command not found
+#!/bin/bash
+
+CMDLINE=$@
+
+echo `date +"%Y-%m-%d %H:%M:%S"`" begin to start:$CMDLINE"
+
+$CMDLINE &
+PID="$!"
+
+echo `date +"%Y-%m-%d %H:%M:%S"`" has started pid:$PID, $CMDLINE"
+while true
+do
+    wait $PID
+    echo `date +"%Y-%m-%d %H:%M:%S"`" terminated, to start again"
+    $CMDLINE &
+    PID="$!"
+    echo `date +"%Y-%m-%d %H:%M:%S"`" restarted pid:$PID, $CMDLINE"
+doneArthur apiserver -f fib.fib -p 8009

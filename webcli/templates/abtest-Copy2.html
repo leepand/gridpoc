@@ -1,0 +1,139 @@
+$def with (exp_list)
+$var title:
+    AB test实验页
+<head>
+   
+</head>
+<!--<div class="wrapper wrapper-content animated fadeInUp">-->
+<section>
+	
+    <div class="section-body">
+<div class="col-lg-12"><!--card-body style-default-bright no-padding-->
+        <div class="card-body style-default-bright">
+            
+<div class="wrapper wrapper-content">
+
+        <div class="row">
+            <div class="col-sm-12">
+          
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>A/B Testing实验结果展示</h5>
+                        <div class="ibox-tools">
+                            <a href="abtest_create.html" class="btn btn-primary btn-xs">创建新实验</a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="row m-b-sm m-t-sm">
+                            <div class="col-md-1">
+                                <button type="button"  onclick="reloadPage()" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> 刷新</button>
+                            </div>
+                            <div class="col-md-11">
+                                <div class="input-group">
+                                    <input type="text" placeholder="请输入项目名称" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-list">
+                            <!--class="footable table table-stripped toggle-arrow-tiny" data-page-size="8"-->
+                            <table class="table table-hover">
+                                <tbody>
+                                    $for exp in exp_list:
+                                    <tr>
+                                        <td class="project-status">
+                                            <span class="label $exp['has_winner']['status']">$exp['has_winner']['result']</span>
+                                        </td>
+                                        <td class="project-title">
+                                            <a href="/name=$exp['name']">$exp['name']</a>
+                                            <br/>
+                                            <small>创建于 </small><small class="text-navy list-time">$exp['created_at']</small>
+                                        </td>
+                                        <td class="project-title">
+                                                <a href="#">总曝光数</a>
+                                                 <br/>
+                                                <small>$exp['total_participants']</small>
+                                        </td>
+                                        <td class="project-title">
+                                            <a href="#">总转化数</a>
+                                            <br/>
+                                            <small>$exp['total_conversions']</small>
+                                        </td>
+                                        <td class="project-actions">
+                                            <a href="/name=$exp['name']#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
+                                        </td>
+                                    </tr>
+     
+                                    </tbody>
+                                
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+ </div> </div> </div>       
+</div><!--end .section-body -->
+</section>
+
+
+    <!-- 全局js -->
+    <!--<script src="../static/js_new/jquery.min.js?v=2.1.4"></script>-->
+
+
+    <!-- 自定义js -->
+    <script src="../static/js_new/content.js?v=1.0.0"></script>
+    <script src="../static/js_new/others.js"></script>
+
+<script type="text/javascript" src="../static/js_new/Arthur/jquery.relativetime.min.js"></script>
+
+<script type="text/javascript">
+	/* 选择元素后直接转换--time ago */
+	$$(".list-time").relativeTime();
+</script>
+
+<script>
+        $$(document).ready(function(){
+
+            $$('#loading-example-btn22').click(function () {
+                btn = $$(this);
+                //simpleLoad(btn, true)
+
+                // Ajax example
+               $$.ajax().always(function () {
+                    simpleLoad($$(this), true)
+                });
+
+                simpleLoad(btn, false)
+            });
+        });
+
+        function simpleLoad(btn, state) {
+            if (state) {
+                btn.children().addClass('fa-spin');
+                btn.contents().last().replaceWith(" Loading");
+            } else {
+                setTimeout(function () {
+                    btn.children().removeClass('fa-spin');
+                    btn.contents().last().replaceWith(" Refresh");
+                }, 2000);
+            }
+        }
+</script>
+<script type="text/javascript">
+function reloadPage()
+  {
+  window.location.reload()
+  }
+</script>
+
+<form action="https://getsimpleform.com/messages?form_api_token=dcdddd3b334d4d195d42ba398e7c3a04" method="post">
+  <!-- the redirect_to is optional, the form will redirect to the referrer on submission -->
+  <input type='hidden' name='redirect_to' value='<the complete return url e.g. http://fooey.com/thank-you.html>' />
+  <!-- all your input fields here.... -->
+  <input type='text' name='test' />
+  <input type='submit' value='Test form' />
+</form>
+      

@@ -1,0 +1,55 @@
+$var title:
+    新建Job
+<head>
+<script src="../static/js/deploy.js" type="text/javascript"></script>
+</head> 
+<!-- Contents -->
+<div id="Contents">
+    <div id="MainForm">
+    <h2><div style="color:#169c83">模型部署</div></h2>
+<div id="Popup">
+<div id="SubPopup">
+
+<div class="form_boxC">
+<p class="f_cB pdg_t5">提示：带"<span class="f_cB">*</span>"号为必填项</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<th width="100">模块名称 <span class="f_cB">*</span></th>
+<td><div class="txtbox floatL" style="width:350px;"><input id="form_func" name="" type="text" size="12" value="" placeholder="predict.py"> </div></td>
+</tr>
+<tr>
+<th width="100">主函数名称 <span class="f_cB">*</span></th>
+<td><div class="txtbox floatL" style="width:350px;"><input id="form_token" name="" type="text" size="20" value="" placeholder="def predict,input:predict"></div></td>
+</tr>
+
+<tr>
+<th width="100">host <span class="f_cB">*</span></th>
+<td><div class="txtbox floatL" style="width:350px;"><input id="form_host" name="" type="text" size="12" value="" placeholder="127.0.0.1"></div></td>
+</tr>
+
+<tr>
+<th width="100">port <span class="f_cB">*</span></th>
+<td><div class="txtbox floatL" style="width:350px;"><input id="form_port" name="" type="text" size="12" value="" placeholder="9001"></div></td>
+</tr>
+
+<tr>
+<th width="100">模型目录 <span class="f_cB">*</span></th>
+<td><div class="txtbox floatL" style="width:350px;"><input id="form_path" name="" type="text" size="12" value="" placeholder="/model/"></div></td>
+</tr>
+    
+
+</table>
+</div>
+</div>
+<!-- SubPopup -->
+
+<div id="BtmBtn">
+            <div class="btn_boxB floatR mag_l20"><input name="" type="button" value="取消" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'"></div>
+            <div class="btn_box floatR"><input name="" type="button" onclick=deploy_model() value="上线" onmousemove="this.className='input_move'" onmouseout="this.className='input_out'"></div>
+</div>
+
+
+</div>
+</div>
+<!-- /Popup -->
+<!-- /Contents -->
